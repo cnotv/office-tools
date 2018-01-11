@@ -55,7 +55,7 @@
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar>
-    
+
     <v-content>
       <v-container>
         <nuxt />
@@ -80,7 +80,7 @@
 
     <v-footer :fixed="fixed" app>
       <span>
-        <a href="https://cnotv.xyz" target="_blank">cnotv &copy; 2018</a>
+        <a href="https://cnotv.xyz" target="_blank">cnotv &copy; 2018</a> 
       </span>
       <nuxt-logo/>
       <vuetify-logo/>
@@ -103,10 +103,10 @@ export default {
       drawer: true,
       fixed: false,
       items: [
-        { icon: 'home', title: 'Welcome', to: '/' },
+        { icon: 'home', title: 'Dashboard', to: '/' },
         { icon: 'portrait', title: 'Curriculum', to: '/cv' },
-        { icon: 'title', title: 'OCR', to: '/ocr' },
-        { icon: 'photo', title: 'Invoices', to: '/invoice' },
+        { icon: 'find_in_page', title: 'OCR', to: '/ocr' },
+        { icon: 'receipt', title: 'Invoices', to: '/invoice' },
         { icon: 'settings', title: 'Settings', to: '/settings' }
       ],
       miniVariant: false,
