@@ -21,8 +21,9 @@
     </v-layout>
 
     <v-layout row wrap justify-center align-center class="text-xs-center">
+
       <v-flex xs12 sm6 md4>
-        <v-card>
+        <v-card  class="ma-2">
           <v-card-title class="headline">CV</v-card-title>
           <v-card-text>
             <p>You have 0 documents</p>
@@ -34,8 +35,10 @@
             </v-btn>
           </v-card-actions>
         </v-card>
+      </v-flex>
 
-        <v-card>
+      <v-flex xs12 sm6 md4>
+        <v-card  class="ma-2">
           <v-card-title class="headline">OCR</v-card-title>
           <v-card-text>
             <p>You have 0 documents</p>
@@ -47,8 +50,10 @@
             </v-btn>
           </v-card-actions>
         </v-card>
+      </v-flex>
 
-        <v-card>
+      <v-flex xs12 sm6 md4>
+        <v-card  class="ma-2">
           <v-card-title class="headline">Invoices</v-card-title>
           <v-card-text>
             <p>You have 0 documents</p>

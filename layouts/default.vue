@@ -22,6 +22,8 @@
             <v-list-tile-title v-text="item.title"></v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+
+        <v-divider v-if="index = 'items.length'"></v-divider>
       </v-list>
 
       <v-btn
@@ -33,7 +35,16 @@
     </v-navigation-drawer>
 
     <v-toolbar fixed app :clipped-left="clipped">
-      <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
+
+      <v-toolbar-title v-text="title"></v-toolbar-title>
+
+      <v-spacer></v-spacer>
+      <v-btn
+        icon
+        @click.stop="rightDrawer = !rightDrawer"
+      >
+        <v-icon>account_circle</v-icon>
+      </v-btn>
       <v-btn
         icon
         @click.stop="clipped = !clipped"
@@ -46,14 +57,7 @@
       >
         <v-icon>remove</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
+      <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
 
     <v-content>
@@ -69,11 +73,11 @@
       fixed
     >
       <v-list>
-        <v-list-tile @click.native="right = !right">
+        <v-list-tile>
           <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
+            <v-icon light>account_circle</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
+          <v-list-tile-title>Account settings</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -104,10 +108,10 @@ export default {
       fixed: false,
       items: [
         { icon: 'home', title: 'Dashboard', to: '/' },
+        { icon: 'settings', title: 'Settings', to: '/settings' },
         { icon: 'portrait', title: 'Curriculum', to: '/cv' },
         { icon: 'find_in_page', title: 'OCR', to: '/ocr' },
-        { icon: 'receipt', title: 'Invoices', to: '/invoice' },
-        { icon: 'settings', title: 'Settings', to: '/settings' }
+        { icon: 'receipt', title: 'Invoices', to: '/invoice' }
       ],
       miniVariant: false,
       right: true,
