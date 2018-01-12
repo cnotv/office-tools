@@ -15,7 +15,6 @@
               <v-list-tile>
                 <v-text-field
                   label="E-mail"
-                  v-model="email"
                 ></v-text-field>
               </v-list-tile>
             </v-list>
@@ -23,7 +22,6 @@
               <v-list-tile>
                 <v-text-field
                   label="Name"
-                  v-model="name"
                 ></v-text-field>
               </v-list-tile>
             </v-list>
@@ -31,7 +29,6 @@
               <v-list-tile>
                 <v-text-field
                   label="Phone"
-                  v-model="phone"
                 ></v-text-field>
               </v-list-tile>
             </v-list>

@@ -5,18 +5,6 @@
         <div class="text-xs-center">
           <logo/>
         </div>
-        <v-card>
-          <v-card-title class="headline">Welcome!</v-card-title>
-          <v-card-text>
-            <p>Thank you for using our app!</p>
-            <p>This toolkit is meant for daily office tasks, allowing you to have all you need in one place and usable offline. The app is build with Nuxt and PWA support.</p>
-            <p>Start now the setup wizard to choose your preferences.</p>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" nuxt to="/settings">Setup Wizard</v-btn>
-          </v-card-actions>
-        </v-card>
       </v-flex>
     </v-layout>
 
@@ -173,6 +161,22 @@
         </v-card>
       </v-flex>
     </v-layout>
+
+    <v-dialog v-model="dialog" max-width="500">
+      <v-card>
+        <v-card-title class="headline">Welcome!</v-card-title>
+        <v-card-text>
+          <p>Thank you for using our app!</p>
+          <p>This toolkit is meant for daily office tasks, allowing you to have all you need in one place and usable offline. The app is build with Nuxt and PWA support.</p>
+          <p>Start now the setup wizard to choose your preferences.</p>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn flat @click.native="dialog = false">Ok, whatever</v-btn>
+          <v-btn color="primary" nuxt to="/settings">Setup Wizard</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </section>
 </template>
 
@@ -182,6 +186,14 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data() {
+    return {
+      dialog: false
+    }
+  },
+  mounted() {
+    this.dialog = true
   }
 }
 </script>
