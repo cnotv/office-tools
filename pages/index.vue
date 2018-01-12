@@ -23,46 +23,58 @@
     <v-layout row wrap justify-center align-center class="text-xs-center">
 
       <v-flex xs12 sm6 md4>
-        <v-card  class="ma-2">
-          <v-card-title class="headline">CV</v-card-title>
-          <v-card-text>
-            <p>You have 0 documents</p>
-          </v-card-text>
-          <v-card-actions>
+        <v-card class="ma-2">
+          <v-toolbar>
+            <v-icon>portrait</v-icon>
+            <v-toolbar-title>CV</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn round flat small fab color="primary" nuxt to="/cv">
               <v-icon>add</v-icon>
             </v-btn>
+          </v-toolbar>
+          <v-card-text class="mt-2">
+            <p>You have 0 documents</p>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>
       </v-flex>
 
       <v-flex xs12 sm6 md4>
-        <v-card  class="ma-2">
-          <v-card-title class="headline">OCR</v-card-title>
-          <v-card-text>
+        <v-card class="ma-2">
+          <v-toolbar>
+            <v-icon>find_in_page</v-icon>
+            <v-toolbar-title>OCR</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn round flat small fab color="primary" nuxt to="/cv">
+              <v-icon>add</v-icon>
+            </v-btn>
+          </v-toolbar>
+          <v-card-text class="mt-2">
             <p>You have 0 documents</p>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn round flat small fab color="primary" nuxt to="/ocr">
-              <v-icon>add</v-icon>
-            </v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
 
       <v-flex xs12 sm6 md4>
-        <v-card  class="ma-2">
-          <v-card-title class="headline">Invoices</v-card-title>
-          <v-card-text>
+        <v-card class="ma-2">
+          <v-toolbar>
+            <v-icon>receipt</v-icon>
+            <v-toolbar-title>Invoices</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn round flat small fab color="primary" nuxt to="/cv">
+              <v-icon>add</v-icon>
+            </v-btn>
+          </v-toolbar>
+          <v-card-text class="mt-2">
             <p>You have 0 documents</p>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn round flat small fab color="primary" nuxt to="/invoice">
-              <v-icon>add</v-icon>
-            </v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>

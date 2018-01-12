@@ -8,22 +8,24 @@
       app
     >
       <v-list>
-        <v-list-tile
-          router
-          :to="item.to"
-          :key="i"
-          v-for="(item, i) in items"
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
+        <template v-for="(item, i) in items">
+          <v-list-tile
+            router
+            :to="item.to"
+            :key="i"
+            exact
+          >
+            <v-list-tile-action>
+              <v-icon v-html="item.icon"></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title v-text="item.title"></v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
-        <v-divider v-if="index = 'items.length'"></v-divider>
+          <v-divider v-if="i === 1 || i === 4"></v-divider>
+        </template>
+
       </v-list>
 
       <v-btn
@@ -72,12 +74,38 @@
       v-model="rightDrawer"
       fixed
     >
+
+      <v-toolbar flat class="transparent">
+        <v-list class="pa-0">
+          <v-list-tile avatar>
+            <v-list-tile-avatar>
+              <v-icon light>account_circle</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>Account settings</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
+
+      <v-divider></v-divider>
+
       <v-list>
         <v-list-tile>
-          <v-list-tile-action>
-            <v-icon light>account_circle</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Account settings</v-list-tile-title>
+          <v-checkbox
+            label="Store settings locally?"
+            v-model="checkbox"
+            @change="settingsStore = !settingsStore"
+          ></v-checkbox>
+        </v-list-tile>
+        <v-list-tile>
+          <v-btn color="error" dark flat>Remove settings</v-btn>
+        </v-list-tile>
+        <v-list-tile>
+          <v-btn flat>Register</v-btn>
+        </v-list-tile>
+        <v-list-tile>
+          <v-btn flat>Login</v-btn>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -116,6 +144,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
+      settingsStore: true,
       title: 'Office tools'
     }
   }
