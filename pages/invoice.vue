@@ -1,24 +1,131 @@
 <template>
-  <section class="container">
-    <ul>
-      <li>Create workgroup</li>
-      <li>Settings</li>
-      <li>Create themes</li>
-      <li>Create template</li>
-      <li>Invoices generator</li>
-      <li>CRUD Invoices</li>
-      <li>Editor</li>
-      <li>Generate PDF</li>
-      <li>Print</li>
-      <li>Share with an encrypted link</li>
-      <li>Save to Dropbox/Drive</li>
-    </ul>
+  <section>
+    <v-layout row wrap>
+
+      <v-flex xs12 sm6>
+        <v-card class="ma-2">
+          <v-toolbar>
+            <v-toolbar-title>{{ workgroup.title }}</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn round flat small fab color="primary">
+              <v-icon>add</v-icon>
+            </v-btn>
+          </v-toolbar>
+
+          <v-list subheader>
+            <v-subheader inset>You have {{ workgroup.files.length }} {{ workgroup.name }}</v-subheader>
+            <v-list-tile
+              avatar
+              v-for="(item, i) in workgroup.files"
+              :key="i"
+              @click=""
+            >
+              <v-list-tile-avatar>
+                <v-icon class="green white--text" dark>web</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile-content>
+
+              <v-list-tile-action>
+                <v-btn round flat small fab color="primary">
+                  <v-icon>edit</v-icon>
+                </v-btn>
+              </v-list-tile-action>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-flex>
+
+      <v-flex xs12 sm6>
+        <v-card class="ma-2">
+          <v-toolbar>
+            <v-toolbar-title>{{ invoice.title }}</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn round flat small fab color="primary">
+              <v-icon>add</v-icon>
+            </v-btn>
+          </v-toolbar>
+
+          <v-list subheader>
+            <v-subheader inset>You have {{ invoice.files.length }} {{ invoice.name }}</v-subheader>
+            <v-list-tile
+              avatar
+              v-for="(item, i) in invoice.files"
+              :key="i"
+              @click=""
+            >
+              <v-list-tile-avatar>
+                <v-icon class="green white--text" dark>assignment</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                <v-list-tile-sub-title>{{ item.date }}</v-list-tile-sub-title>
+              </v-list-tile-content>
+
+              <v-list-tile-action>
+                <v-speed-dial
+                  v-model="fab"
+                  :direction="'left'"
+                  :hover="true"
+                >
+                  <v-btn
+                    dark fab hover flat small
+                    slot="activator"
+                    color="primary"
+                    v-model="fab"
+                  >
+                    <v-icon>more_horiz</v-icon>
+                    <v-icon>close</v-icon>
+                  </v-btn>
+
+                  <v-btn
+                    round flat small fab
+                    v-for="(btn, i) in actionFile"
+                    :key="i"
+                    @click=""
+                  >
+                    <v-icon>{{ btn.icon }}</v-icon>
+                  </v-btn>
+                </v-speed-dial>
+
+                </v-btn>
+              </v-list-tile-action>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </section>
 </template>
 
 <script>
 export default {
-  components: {
+  data() {
+    return {
+      actionFile: [
+        { icon: 'print', tooltip: 'Print', to: '/cv' },
+        { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
+        { icon: 'file_download', tooltip: 'Download', to: '/cv' },
+        { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
+        { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' }
+      ],
+      invoice: {
+        name: 'invoice',
+        title: 'Your invoices',
+        files: [
+          { title: 'Invoice 0001', date: '01.01.2016' },
+          { title: 'Invoice 0002', date: '02.01.2016' }
+        ]
+      },
+      workgroup: {
+        name: 'workgroup',
+        title: 'Your workgroup',
+        files: [
+          { title: 'Default workgroup' }
+        ]
+      }
+    }
   }
 }
 </script>

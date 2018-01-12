@@ -91,47 +91,51 @@
       <v-divider></v-divider>
 
       <v-list>
-        <v-list-tile>
-          <v-checkbox
-            label="Store settings locally?"
-            v-model="checkbox"
-            @change="settingsStore = !settingsStore"
-          ></v-checkbox>
-        </v-list-tile>
-        <v-list-tile>
-          <v-btn color="error" dark flat>Remove settings</v-btn>
-        </v-list-tile>
-        <v-list-tile>
-          <v-btn flat>Register</v-btn>
-        </v-list-tile>
-        <v-list-tile>
-          <v-btn flat>Login</v-btn>
+        <v-list-tile
+          v-for="(item, i) in account.access"
+          :key="i"
+          @click=""
+        >
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
         </v-list-tile>
       </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list>
+        <v-list-tile
+          v-for="(item, i) in account.options"
+          :key="i"
+          @click=""
+        >
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+
     </v-navigation-drawer>
 
     <v-footer :fixed="fixed" app>
       <span>
-        <a href="https://cnotv.xyz" target="_blank">cnotv &copy; 2018</a> 
+        <a href="https://cnotv.xyz" target="_blank">cnotv &copy; 2018</a>
+        Build with
+        <a href="https://vuetifyjs.com" target="_blank">Vuetify</a> and 
+        <a href="https://nuxtjs.org/" target="_blank">Nuxt</a>
       </span>
-      <nuxt-logo/>
-      <vuetify-logo/>
     </v-footer>
   </v-app>
 </template>
 
 <script>
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-import NuxtLogo from '~/components/NuxtLogo.vue'
-
 export default {
   components: {
-    VuetifyLogo,
-    NuxtLogo
   },
   data() {
     return {
-      clipped: false,
+      clipped: true,
       drawer: true,
       fixed: false,
       items: [
@@ -141,6 +145,21 @@ export default {
         { icon: 'find_in_page', title: 'OCR', to: '/ocr' },
         { icon: 'receipt', title: 'Invoices', to: '/invoice' }
       ],
+      account: {
+        access: [
+          { title: 'Register', class: '', to: '/' },
+          { title: 'Login', class: '', to: '/' },
+          { title: 'Remove settings', class: 'red', to: '/' }
+        ],
+        options: [
+          { title: 'Preferences', class: '', to: '/' },
+          { title: 'Change E-mail', class: '', to: '/' },
+          { title: 'Change Password', class: '', to: '/' },
+          { title: 'Change Avatar', class: '', to: '/' },
+          { title: 'Reset', class: '', to: '/' },
+          { title: 'Delete account', class: 'red', to: '/' }
+        ]
+      },
       miniVariant: false,
       right: true,
       rightDrawer: false,

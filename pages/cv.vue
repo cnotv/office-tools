@@ -1,12 +1,11 @@
 <template>
   <section>
-
     <v-layout row wrap>
 
       <v-flex xs12 sm6>
         <v-card class="ma-2">
           <v-toolbar>
-            <v-toolbar-title>You curriculum</v-toolbar-title>
+            <v-toolbar-title>{{ curriculum.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn round flat small fab color="primary">
               <v-icon>add</v-icon>
@@ -14,10 +13,10 @@
           </v-toolbar>
 
           <v-list subheader>
-            <v-subheader inset>You have {{curriculum.length}} curriculum</v-subheader>
+            <v-subheader inset>You have {{ curriculum.files.length }} {{ curriculum.name }}</v-subheader>
             <v-list-tile
               avatar
-              v-for="(item, i) in curriculum"
+              v-for="(item, i) in curriculum.files"
               :key="i"
               @click=""
             >
@@ -65,7 +64,7 @@
       <v-flex xs12 sm6>
         <v-card class="ma-2">
           <v-toolbar>
-            <v-toolbar-title>Your templates</v-toolbar-title>
+            <v-toolbar-title>{{ templates.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn round flat small fab color="primary">
               <v-icon>add</v-icon>
@@ -73,10 +72,10 @@
           </v-toolbar>
 
           <v-list subheader>
-            <v-subheader inset>You have {{templates.length}} templates</v-subheader>
+            <v-subheader inset>You have {{ templates.files.length }} {{ templates.name }}</v-subheader>
             <v-list-tile
               avatar
-              v-for="(item, i) in templates"
+              v-for="(item, i) in templates.files"
               :key="i"
               @click=""
             >
@@ -96,27 +95,7 @@
           </v-list>
         </v-card>
       </v-flex>
-
-      <v-flex xs12 sm6 md4>
-        <v-card class="ma-2">
-          <v-card-text class="px-4">
-            <ul>
-              <li>Create CV</li>
-              <li>Settings</li>
-              <li>Create template</li>
-              <li>CRUD CV</li>
-              <li>Editor</li>
-              <li>Generate PDF</li>
-              <li>Print</li>
-              <li>Import from Linkedin/Stackoverflow/Github</li>
-              <li>Share with an encrypted link</li>
-              <li>Save to Dropbox/Drive</li>
-            </ul>
-          </v-card-text>
-        </v-card>
-      </v-flex>
     </v-layout>
-
   </section>
 </template>
 
@@ -125,17 +104,26 @@ export default {
   data() {
     return {
       actionFile: [
+        { icon: 'print', tooltip: 'Print', to: '/cv' },
         { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
         { icon: 'file_download', tooltip: 'Download', to: '/cv' },
         { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
         { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' }
       ],
-      curriculum: [
-        { title: 'My first curriculum', date: '01.01.2016' }
-      ],
-      templates: [
-        { title: 'Default template' }
-      ]
+      curriculum: {
+        name: 'curriculum',
+        title: 'Your curriculum',
+        files: [
+          { title: 'My first curriculum', date: '01.01.2016' }
+        ]
+      },
+      templates: {
+        name: 'templates',
+        title: 'Your templates',
+        files: [
+          { title: 'Default template' }
+        ]
+      }
     }
   }
 }

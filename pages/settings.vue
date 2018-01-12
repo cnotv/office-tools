@@ -45,32 +45,17 @@
             <v-toolbar-title>Import data from Social</v-toolbar-title>
           </v-toolbar>
 
-          <v-card-text>
-            <v-list>
-              <v-list-tile>
-                <v-btn>
-                  Linkedin
-                  <v-icon right>link</v-icon>
-                </v-btn>
-              </v-list-tile>
-            </v-list>
-            <v-list>
-              <v-list-tile>
-                <v-btn>
-                  Stackoverflow
-                  <v-icon right>link</v-icon>
-                </v-btn>
-              </v-list-tile>
-            </v-list>
-            <v-list>
-              <v-list-tile>
-                <v-btn>
-                  Github
-                  <v-icon right>link</v-icon>
-                </v-btn>
-              </v-list-tile>
-            </v-list>
-          </v-card-text>
+          <v-list>
+            <v-list-tile
+              v-for="(item, i) in social"
+              :key="i"
+              @click=""
+            >
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
         </v-card>
       </v-flex>
 
@@ -80,55 +65,18 @@
             <v-toolbar-title>Data</v-toolbar-title>
           </v-toolbar>
 
-          <v-card-text>
-            <v-list>
-              <v-list-tile>
-                <v-btn flat>Export JSON</v-btn>
-              </v-list-tile>
-            </v-list>
-            <v-list>
-              <v-list-tile>
-                <v-btn flat>Import with link</v-btn>
-              </v-list-tile>
-            </v-list>
-            <v-list>
-              <v-list-tile>
-                <v-btn flat>Export with link</v-btn>
-              </v-list-tile>
-            </v-list>
-            <v-list>
-              <v-list-tile>
-                <v-btn color="error" dark>Reset</v-btn>
-              </v-list-tile>
-            </v-list>
-          </v-card-text>
+          <v-list>
+            <v-list-tile
+              v-for="(item, i) in data"
+              :key="i"
+              @click=""
+            >
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
         </v-card>
-      </v-flex>
-
-      <v-flex xs12 sm6 md4>
-        <v-card class="ma-2">
-          <v-toolbar>
-            <v-toolbar-title>To do</v-toolbar-title>
-          </v-toolbar>
-          <v-card-text class="px-4">
-            <ul>
-              <li>Default settings object</li>
-              <li>Store data locally</li>
-              <li>Registration and autentication</li>
-              <li>Login with social</li>
-              <li>Link socials</li>
-              <li>Attach logo with crop</li>
-              <li>Edit shareabledData</li>
-              <li>Edit common areas</li>
-              <li>Export data in JSON</li>
-              <li>Export data encrypted</li>
-              <li>Reset</li>
-              <li>Themes</li>
-              <li>Setting Wizard</li>
-            </ul>
-          </v-card-text>
-        </v-card>
-
       </v-flex>
     </v-layout>
   </section>
@@ -136,7 +84,20 @@
 
 <script>
 export default {
-  components: {
+  data() {
+    return {
+      data: [
+        { title: 'Export JSON', icon: 'code', to: '/' },
+        { title: 'Export link', icon: '', to: '/' },
+        { title: 'Import with link', icon: '', to: '/' },
+        { title: 'Reset', icon: 'red', to: '/' }
+      ],
+      social: [
+        { title: 'Linkedin', class: '', to: '/' },
+        { title: 'Stackoverflow', class: '', to: '/' },
+        { title: 'Github', class: '', to: '/' }
+      ]
+    }
   }
 }
 </script>
