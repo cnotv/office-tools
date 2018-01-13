@@ -8,7 +8,7 @@
       app
     >
       <v-list>
-        <template v-for="(item, i) in items">
+        <template v-for="(item, i) in getNav.main">
           <v-list-tile
             router
             :to="item.to"
@@ -36,7 +36,7 @@
       </v-btn>
     </v-navigation-drawer>
 
-    <v-toolbar fixed app :clipped-left="clipped">
+    <v-toolbar fixed app dark :clipped-left="clipped">
 
       <v-toolbar-title v-text="title"></v-toolbar-title>
 
@@ -92,7 +92,7 @@
 
       <v-list>
         <v-list-tile
-          v-for="(item, i) in account.access"
+          v-for="(item, i) in getNav.account.access"
           :key="i"
           @click=""
         >
@@ -106,7 +106,7 @@
 
       <v-list>
         <v-list-tile
-          v-for="(item, i) in account.options"
+          v-for="(item, i) in getNav.account.options"
           :key="i"
           @click=""
         >
@@ -130,6 +130,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
   },
@@ -138,33 +140,46 @@ export default {
       clipped: true,
       drawer: true,
       fixed: false,
-      items: [
-        { icon: 'home', title: 'Dashboard', to: '/' },
-        { icon: 'settings', title: 'Settings', to: '/settings' },
-        { icon: 'portrait', title: 'Curriculum', to: '/cv' },
-        { icon: 'find_in_page', title: 'OCR', to: '/ocr' },
-        { icon: 'receipt', title: 'Invoices', to: '/invoice' }
-      ],
-      account: {
-        access: [
-          { title: 'Register', class: '', to: '/' },
-          { title: 'Login', class: '', to: '/' },
-          { title: 'Remove settings', class: 'red', to: '/' }
-        ],
-        options: [
-          { title: 'Preferences', class: '', to: '/' },
-          { title: 'Change E-mail', class: '', to: '/' },
-          { title: 'Change Password', class: '', to: '/' },
-          { title: 'Change Avatar', class: '', to: '/' },
-          { title: 'Reset', class: '', to: '/' },
-          { title: 'Delete account', class: 'red', to: '/' }
-        ]
-      },
       miniVariant: false,
       right: true,
       rightDrawer: false,
       settingsStore: true,
       title: 'Office tools'
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'getNav'
+    ])
+  },
+  methods: {
+    resetSettings() {
+      localStorage.clear()
+      location.reload()
+    }
+  },
+  mounted() {
+    if (window && !window.navigator) {
+      // console.log('You are not online')
+      this.statusOnline = false
+      return
+    }
+
+    // console.log('You are online')
+    this.statusOnline = Boolean(window.navigator.onLine)
+
+    if (!this.statusOnline) {
+      window.addEventListener('offline', this._toggleNetworkStatus)
+      window.addEventListener('online', this._toggleNetworkStatus)
+
+      // console.log('Loading offline mode...')
+      if (this.noStorage) {
+        this.$store.dispatch('commitPosts')
+        // console.log('Cant load offline: you have no store :( ', this.noStorage)
+      } else {
+        this.$store.commit('commitPosts', JSON.parse(window.localStorage.getItem('vuex')))
+        // console.log('Offline mode loaded')
+      }
     }
   }
 }

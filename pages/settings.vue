@@ -44,7 +44,7 @@
 
           <v-list>
             <v-list-tile
-              v-for="(item, i) in social"
+              v-for="(item, i) in getSettings.social"
               :key="i"
               @click=""
             >
@@ -64,7 +64,7 @@
 
           <v-list>
             <v-list-tile
-              v-for="(item, i) in data"
+              v-for="(item, i) in getSettings.data"
               :key="i"
               @click=""
             >
@@ -80,21 +80,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  data() {
-    return {
-      data: [
-        { title: 'Export JSON', icon: 'code', to: '/' },
-        { title: 'Export link', icon: '', to: '/' },
-        { title: 'Import with link', icon: '', to: '/' },
-        { title: 'Reset', icon: 'red', to: '/' }
-      ],
-      social: [
-        { title: 'Linkedin', class: '', to: '/' },
-        { title: 'Stackoverflow', class: '', to: '/' },
-        { title: 'Github', class: '', to: '/' }
-      ]
-    }
+  computed: {
+    ...mapGetters([
+      'getSettings'
+    ])
   }
 }
 </script>

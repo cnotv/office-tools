@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "nuxt": "^1.0.0-rc11",
-    "vuetify": "^0.17.3"
+    "vuetify": "^0.17.3",
+    "vuex-persist": "^1.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

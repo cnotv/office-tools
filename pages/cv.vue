@@ -5,7 +5,7 @@
       <v-flex xs12 sm6>
         <v-card class="ma-2">
           <v-toolbar>
-            <v-toolbar-title>{{ curriculum.title }}</v-toolbar-title>
+            <v-toolbar-title>{{ getCv.curriculum.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn round flat small fab color="primary">
               <v-icon>add</v-icon>
@@ -13,10 +13,10 @@
           </v-toolbar>
 
           <v-list subheader>
-            <v-subheader inset>You have {{ curriculum.files.length }} {{ curriculum.name }}</v-subheader>
+            <v-subheader inset>You have {{ getCv.curriculum.files.length }} {{ getCv.curriculum.name }}</v-subheader>
             <v-list-tile
               avatar
-              v-for="(item, i) in curriculum.files"
+              v-for="(item, i) in getCv.curriculum.files"
               :key="i"
               @click=""
             >
@@ -46,7 +46,7 @@
 
                   <v-btn
                     round flat small fab
-                    v-for="(btn, i) in actionFile"
+                    v-for="(btn, i) in getCv.actionFile"
                     :key="i"
                     @click=""
                   >
@@ -64,7 +64,7 @@
       <v-flex xs12 sm6>
         <v-card class="ma-2">
           <v-toolbar>
-            <v-toolbar-title>{{ templates.title }}</v-toolbar-title>
+            <v-toolbar-title>{{ getCv.templates.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn round flat small fab color="primary">
               <v-icon>add</v-icon>
@@ -72,10 +72,10 @@
           </v-toolbar>
 
           <v-list subheader>
-            <v-subheader inset>You have {{ templates.files.length }} {{ templates.name }}</v-subheader>
+            <v-subheader inset>You have {{ getCv.templates.files.length }} {{ getCv.templates.name }}</v-subheader>
             <v-list-tile
               avatar
-              v-for="(item, i) in templates.files"
+              v-for="(item, i) in getCv.templates.files"
               :key="i"
               @click=""
             >
@@ -100,31 +100,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  data() {
-    return {
-      actionFile: [
-        { icon: 'print', tooltip: 'Print', to: '/cv' },
-        { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
-        { icon: 'file_download', tooltip: 'Download', to: '/cv' },
-        { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
-        { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' }
-      ],
-      curriculum: {
-        name: 'curriculum',
-        title: 'Your curriculum',
-        files: [
-          { title: 'My first curriculum', date: '01.01.2016' }
-        ]
-      },
-      templates: {
-        name: 'templates',
-        title: 'Your templates',
-        files: [
-          { title: 'Default template' }
-        ]
-      }
-    }
+  computed: {
+    ...mapGetters([
+      'getCv'
+    ])
   }
 }
 </script>

@@ -5,7 +5,7 @@
       <v-flex xs12 sm6>
         <v-card class="ma-2">
           <v-toolbar>
-            <v-toolbar-title>{{ workgroup.title }}</v-toolbar-title>
+            <v-toolbar-title>{{ getInvoice.workgroup.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn round flat small fab color="primary">
               <v-icon>add</v-icon>
@@ -13,10 +13,10 @@
           </v-toolbar>
 
           <v-list subheader>
-            <v-subheader inset>You have {{ workgroup.files.length }} {{ workgroup.name }}</v-subheader>
+            <v-subheader inset>You have {{ getInvoice.workgroup.files.length }} {{ getInvoice.workgroup.name }}</v-subheader>
             <v-list-tile
               avatar
-              v-for="(item, i) in workgroup.files"
+              v-for="(item, i) in getInvoice.workgroup.files"
               :key="i"
               @click=""
             >
@@ -40,7 +40,7 @@
       <v-flex xs12 sm6>
         <v-card class="ma-2">
           <v-toolbar>
-            <v-toolbar-title>{{ invoice.title }}</v-toolbar-title>
+            <v-toolbar-title>{{ getInvoice.invoice.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn round flat small fab color="primary">
               <v-icon>add</v-icon>
@@ -48,10 +48,10 @@
           </v-toolbar>
 
           <v-list subheader>
-            <v-subheader inset>You have {{ invoice.files.length }} {{ invoice.name }}</v-subheader>
+            <v-subheader inset>You have {{ getInvoice.invoice.files.length }} {{ getInvoice.invoice.name }}</v-subheader>
             <v-list-tile
               avatar
-              v-for="(item, i) in invoice.files"
+              v-for="(item, i) in getInvoice.invoice.files"
               :key="i"
               @click=""
             >
@@ -81,7 +81,7 @@
 
                   <v-btn
                     round flat small fab
-                    v-for="(btn, i) in actionFile"
+                    v-for="(btn, i) in getInvoice.actionFile"
                     :key="i"
                     @click=""
                   >
@@ -100,32 +100,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  data() {
-    return {
-      actionFile: [
-        { icon: 'print', tooltip: 'Print', to: '/cv' },
-        { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
-        { icon: 'file_download', tooltip: 'Download', to: '/cv' },
-        { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
-        { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' }
-      ],
-      invoice: {
-        name: 'invoice',
-        title: 'Your invoices',
-        files: [
-          { title: 'Invoice 0001', date: '01.01.2016' },
-          { title: 'Invoice 0002', date: '02.01.2016' }
-        ]
-      },
-      workgroup: {
-        name: 'workgroup',
-        title: 'Your workgroup',
-        files: [
-          { title: 'Default workgroup' }
-        ]
-      }
-    }
+  computed: {
+    ...mapGetters([
+      'getInvoice'
+    ])
   }
 }
 </script>

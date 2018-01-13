@@ -162,7 +162,7 @@
       </v-flex>
     </v-layout>
 
-    <v-dialog v-model="dialog" max-width="500">
+    <v-dialog v-model="getIndex.dialog" max-width="500">
       <v-card>
         <v-card-title class="headline">Welcome!</v-card-title>
         <v-card-text>
@@ -172,7 +172,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat @click.native="dialog = false">Ok, whatever</v-btn>
+          <v-btn flat @click.native="changeDialog()">Ok, whatever</v-btn>
           <v-btn color="primary" nuxt to="/settings">Setup Wizard</v-btn>
         </v-card-actions>
       </v-card>
@@ -181,19 +181,27 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
     Logo
   },
-  data() {
-    return {
-      dialog: false
-    }
+  computed: {
+    ...mapGetters([
+      'getIndex'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'changeDialog'
+    ])
   },
   mounted() {
-    this.dialog = true
+    if (!window.localStorage.getItem('vuex')) {
+      this.$store.dispatch('changeDialog')
+    }
   }
 }
 </script>
