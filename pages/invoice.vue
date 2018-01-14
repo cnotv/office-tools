@@ -81,7 +81,7 @@
 
                   <v-btn
                     round flat small fab
-                    v-for="(btn, i) in getInvoice.actionFile"
+                    v-for="(btn, i) in getGlobal.actionFile"
                     :key="i"
                     @click=""
                   >
@@ -105,7 +105,8 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'getInvoice'
+      'getInvoice',
+      'getGlobal'
     ])
   }
 }

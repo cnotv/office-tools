@@ -24,7 +24,14 @@ const store = () => {
         miniVariant: false,
         fixed: false,
         account: false,
-        dialog: false
+        dialog: false,
+        actionFile: [
+          { icon: 'print', tooltip: 'Print', to: '/cv' },
+          // { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
+          { icon: 'file_download', tooltip: 'Download', to: '/cv' },
+          { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
+          { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' }
+        ]
       },
 
       navigation: {
@@ -69,13 +76,6 @@ const store = () => {
         index: {
         },
         cv: {
-          actionFile: [
-            { icon: 'print', tooltip: 'Print', to: '/cv' },
-            { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
-            { icon: 'file_download', tooltip: 'Download', to: '/cv' },
-            { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
-            { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' }
-          ],
           curriculum: {
             name: 'curriculum',
             title: 'Your curriculum',
@@ -92,13 +92,6 @@ const store = () => {
           }
         },
         ocr: {
-          actionFile: [
-            { icon: 'print', tooltip: 'Print', to: '/cv' },
-            { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
-            { icon: 'file_download', tooltip: 'Download', to: '/cv' },
-            { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
-            { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' }
-          ],
           documents: {
             name: 'documents',
             title: 'Your documents',
@@ -119,13 +112,6 @@ const store = () => {
           }
         },
         invoice: {
-          actionFile: [
-            { icon: 'print', tooltip: 'Print', to: '/cv' },
-            { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
-            { icon: 'file_download', tooltip: 'Download', to: '/cv' },
-            { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
-            { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' }
-          ],
           invoice: {
             name: 'invoice',
             title: 'Your invoices',
