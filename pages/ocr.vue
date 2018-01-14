@@ -26,7 +26,11 @@
           <v-toolbar>
             <v-toolbar-title>{{ getOcr.documents.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn round flat small fab color="primary">
+            <v-btn
+              round flat small fab
+              color="primary"
+              @click="newFile('ocr')"
+            >
               <v-icon>add</v-icon>
             </v-btn>
           </v-toolbar>
@@ -84,13 +88,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: {
     ...mapGetters([
       'getOcr',
       'getGlobal'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'newFile'
     ])
   }
 }

@@ -7,7 +7,11 @@
           <v-toolbar>
             <v-toolbar-title>{{ getInvoice.workgroup.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn round flat small fab color="primary">
+            <v-btn
+              round flat small fab
+              color="primary"
+              @click=""
+            >
               <v-icon>add</v-icon>
             </v-btn>
           </v-toolbar>
@@ -42,7 +46,11 @@
           <v-toolbar>
             <v-toolbar-title>{{ getInvoice.invoice.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn round flat small fab color="primary">
+            <v-btn
+              round flat small fab
+              color="primary"
+              @click="newFile('invoice')"
+            >
               <v-icon>add</v-icon>
             </v-btn>
           </v-toolbar>
@@ -100,13 +108,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: {
     ...mapGetters([
       'getInvoice',
       'getGlobal'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'newFile'
     ])
   }
 }
