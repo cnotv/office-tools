@@ -162,7 +162,7 @@
       </v-flex>
     </v-layout>
 
-    <v-dialog v-model="getIndex.dialog" max-width="500">
+    <v-dialog v-model="getGlobal.dialog" max-width="500">
       <v-card>
         <v-card-title class="headline">Welcome!</v-card-title>
         <v-card-text>
@@ -172,7 +172,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn flat @click.native="changeDialog()">Ok, whatever</v-btn>
+          <v-btn flat @click.native="getGlobal.dialog = !getGlobal.dialog">Ok, whatever</v-btn>
           <v-btn color="primary" nuxt to="/settings">Setup Wizard</v-btn>
         </v-card-actions>
       </v-card>
@@ -190,17 +190,17 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getIndex'
+      'getGlobal'
     ])
   },
   methods: {
     ...mapActions([
-      'changeDialog'
+      'switchOption'
     ])
   },
   mounted() {
     if (!window.localStorage.getItem('vuex')) {
-      this.$store.dispatch('changeDialog')
+      this.$store.dispatch('switchOption', this.$store.state.global.dialog)
     }
   }
 }

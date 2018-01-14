@@ -17,6 +17,16 @@ const store = () => {
     state: {
       strict: process.env.NODE_ENV !== 'production',
 
+      global: {
+        title: 'Office tools',
+        clipped: true,
+        drawer: true,
+        miniVariant: false,
+        fixed: false,
+        account: false,
+        dialog: false
+      },
+
       navigation: {
         main: [
           { icon: 'home', title: 'Dashboard', to: '/' },
@@ -57,7 +67,6 @@ const store = () => {
           ]
         },
         index: {
-          dialog: false
         },
         cv: {
           actionFile: [

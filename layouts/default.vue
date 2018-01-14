@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
+      :mini-variant="getGlobal.miniVariant"
+      :clipped="getGlobal.clipped"
+      v-model="getGlobal.drawer"
       fixed
       app
     >
@@ -25,41 +25,39 @@
 
           <v-divider v-if="i === 1 || i === 4"></v-divider>
         </template>
-
       </v-list>
-
       <v-btn
         icon
-        @click.stop="miniVariant = !miniVariant"
+        @click.stop="getGlobal.miniVariant = !getGlobal.miniVariant"
       >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+        <v-icon v-html="getGlobal.miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
     </v-navigation-drawer>
 
-    <v-toolbar fixed app dark :clipped-left="clipped">
+    <v-toolbar fixed app dark :clipped-left="getGlobal.clipped">
 
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title v-text="getGlobal.title"></v-toolbar-title>
 
       <v-spacer></v-spacer>
       <v-btn
         icon
-        @click.stop="rightDrawer = !rightDrawer"
+        @click.stop="getGlobal.account = !getGlobal.account"
       >
         <v-icon>account_circle</v-icon>
       </v-btn>
       <v-btn
         icon
-        @click.stop="clipped = !clipped"
+        @click.stop="getGlobal.clipped = !getGlobal.clipped"
       >
         <v-icon>web</v-icon>
       </v-btn>
       <v-btn
         icon
-        @click.stop="fixed = !fixed"
+        @click.stop="getGlobal.fixed = !getGlobal.fixed"
       >
         <v-icon>remove</v-icon>
       </v-btn>
-      <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click="getGlobal.drawer = !getGlobal.drawer"></v-toolbar-side-icon>
     </v-toolbar>
 
     <v-content>
@@ -70,8 +68,8 @@
 
     <v-navigation-drawer
       temporary
-      :right="right"
-      v-model="rightDrawer"
+      right
+      v-model="getGlobal.account"
       fixed
     >
 
@@ -118,7 +116,7 @@
 
     </v-navigation-drawer>
 
-    <v-footer :fixed="fixed" app>
+    <v-footer :fixed="getGlobal.fixed" app>
       <span>
         <a href="https://cnotv.xyz" target="_blank">cnotv &copy; 2018</a>
         Build with
@@ -130,33 +128,23 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  components: {
-  },
-  data() {
-    return {
-      clipped: true,
-      drawer: true,
-      fixed: false,
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      settingsStore: true,
-      title: 'Office tools'
-    }
-  },
   computed: {
     ...mapGetters([
-      'getNav'
+      'getNav',
+      'getGlobal'
     ])
   },
   methods: {
     resetSettings() {
       localStorage.clear()
       location.reload()
-    }
+    },
+    ...mapActions([
+      'switchOption'
+    ])
   },
   mounted() {
     if (window && !window.navigator) {

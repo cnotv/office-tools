@@ -1,3 +1,3 @@
-export const changeDialog = ({ commit, state }) => {
-  commit('CHANGE_DIALOG')
+export const switchOption = ({ commit, state }, option) => {
+  commit('SWITCH_OPTION', option)
 }
