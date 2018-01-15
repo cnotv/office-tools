@@ -131,6 +131,11 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  data() {
+    return {
+      status: true
+    }
+  },
   computed: {
     ...mapGetters([
       'getNav',
@@ -149,21 +154,21 @@ export default {
   mounted() {
     if (window && !window.navigator) {
       // console.log('You are not online')
-      this.statusOnline = false
+      this.status = false
       return
     }
 
     // console.log('You are online')
-    this.statusOnline = Boolean(window.navigator.onLine)
+    this.status = Boolean(window.navigator.onLine)
 
-    if (!this.statusOnline) {
+    if (!this.status) {
       window.addEventListener('offline', this._toggleNetworkStatus)
       window.addEventListener('online', this._toggleNetworkStatus)
 
       // console.log('Loading offline mode...')
-      if (this.noStorage) {
+      if (window.localStorage.getItem('vuex') === null) {
         this.$store.dispatch('commitPosts')
-        // console.log('Cant load offline: you have no store :( ', this.noStorage)
+        // console.log('Cant load offline: you have no store :( ', window.localStorage.getItem('vuex') === null)
       } else {
         this.$store.commit('commitPosts', JSON.parse(window.localStorage.getItem('vuex')))
         // console.log('Offline mode loaded')

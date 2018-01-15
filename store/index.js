@@ -19,6 +19,7 @@ const store = () => {
 
       global: {
         title: 'Office tools',
+        status: true,
         clipped: true,
         drawer: true,
         miniVariant: false,
@@ -44,17 +45,17 @@ const store = () => {
         ],
         account: {
           access: [
-            { title: 'Register', class: '', to: '/' },
-            { title: 'Login', class: '', to: '/' },
-            { title: 'Remove settings', class: 'red', to: '/' }
+            { title: 'Register', class: '', to: '/', click: '' },
+            { title: 'Login', class: '', to: '/', click: '' },
+            { title: 'Remove settings', class: 'red', to: '/', click: '' }
           ],
           options: [
-            { title: 'Preferences', class: '', to: '/' },
-            { title: 'Change E-mail', class: '', to: '/' },
-            { title: 'Change Password', class: '', to: '/' },
-            { title: 'Change Avatar', class: '', to: '/' },
-            { title: 'Reset', class: '', to: '/' },
-            { title: 'Delete account', class: 'red', to: '/' }
+            { title: 'Preferences', class: '', to: '/', click: '' },
+            { title: 'Change E-mail', class: '', to: '/', click: '' },
+            { title: 'Change Password', class: '', to: '/', click: '' },
+            { title: 'Change Avatar', class: '', to: '/', click: '' },
+            { title: 'Reset', class: '', to: '/', click: '' },
+            { title: 'Delete account', class: 'red', to: '/', click: '' }
           ]
         }
       },
@@ -73,8 +74,10 @@ const store = () => {
             { title: 'Github', class: '', to: '/' }
           ]
         },
+
         index: {
         },
+
         cv: {
           doc: {
             name: 'curriculum',
@@ -91,6 +94,7 @@ const store = () => {
             ]
           }
         },
+
         ocr: {
           doc: {
             name: 'documents',
@@ -111,6 +115,7 @@ const store = () => {
             ]
           }
         },
+
         invoice: {
           doc: {
             name: 'invoice',
