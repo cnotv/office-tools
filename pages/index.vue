@@ -21,7 +21,7 @@
             </v-btn>
           </v-toolbar>
           <v-card-text class="mt-2">
-            <p>You have 0 documents</p>
+            <p>You have {{ getCv.doc.files.length }} {{ getCv.doc.name }}</p>
           </v-card-text>
 
           <v-toolbar>
@@ -52,12 +52,12 @@
             <v-icon>find_in_page</v-icon>
             <v-toolbar-title>OCR</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn round flat small fab color="primary" nuxt to="/cv">
+            <v-btn round flat small fab color="primary" nuxt to="/ocr">
               <v-icon>add</v-icon>
             </v-btn>
           </v-toolbar>
           <v-card-text class="mt-2">
-            <p>You have 0 documents</p>
+            <p>You have {{ getOcr.doc.files.length }} {{ getOcr.doc.name }}</p>
           </v-card-text>
 
           <v-toolbar>
@@ -87,12 +87,12 @@
             <v-icon>receipt</v-icon>
             <v-toolbar-title>Invoices</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn round flat small fab color="primary" nuxt to="/cv">
+            <v-btn round flat small fab color="primary" nuxt to="/invoice">
               <v-icon>add</v-icon>
             </v-btn>
           </v-toolbar>
           <v-card-text class="mt-2">
-            <p>You have 0 documents</p>
+            <p>You have {{ getInvoice.doc.files.length }} {{ getInvoice.doc.name }}</p>
           </v-card-text>
 
           <v-toolbar>
@@ -190,7 +190,10 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getGlobal'
+      'getGlobal',
+      'getCv',
+      'getOcr',
+      'getInvoice'
     ])
   },
   methods: {

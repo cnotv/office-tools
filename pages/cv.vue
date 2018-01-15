@@ -5,7 +5,7 @@
       <v-flex xs12 sm6>
         <v-card class="ma-2">
           <v-toolbar>
-            <v-toolbar-title>{{ getCv.curriculum.title }}</v-toolbar-title>
+            <v-toolbar-title>{{ getCv.doc.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn
               round flat small fab
@@ -17,10 +17,10 @@
           </v-toolbar>
 
           <v-list subheader>
-            <v-subheader inset>You have {{ getCv.curriculum.files.length }} {{ getCv.curriculum.name }}</v-subheader>
+            <v-subheader inset>You have {{ getCv.doc.files.length }} {{ getCv.doc.name }}</v-subheader>
             <v-list-tile
               avatar
-              v-for="(item, i) in getCv.curriculum.files"
+              v-for="(item, i) in getCv.doc.files"
               :key="i"
               @click=""
             >

@@ -76,7 +76,7 @@ const store = () => {
         index: {
         },
         cv: {
-          curriculum: {
+          doc: {
             name: 'curriculum',
             title: 'Your curriculum',
             files: [
@@ -92,7 +92,7 @@ const store = () => {
           }
         },
         ocr: {
-          documents: {
+          doc: {
             name: 'documents',
             title: 'Your documents',
             files: [
@@ -112,7 +112,7 @@ const store = () => {
           }
         },
         invoice: {
-          invoice: {
+          doc: {
             name: 'invoice',
             title: 'Your invoices',
             files: [

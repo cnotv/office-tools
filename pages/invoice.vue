@@ -44,7 +44,7 @@
       <v-flex xs12 sm6>
         <v-card class="ma-2">
           <v-toolbar>
-            <v-toolbar-title>{{ getInvoice.invoice.title }}</v-toolbar-title>
+            <v-toolbar-title>{{ getInvoice.doc.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn
               round flat small fab
@@ -56,10 +56,10 @@
           </v-toolbar>
 
           <v-list subheader>
-            <v-subheader inset>You have {{ getInvoice.invoice.files.length }} {{ getInvoice.invoice.name }}</v-subheader>
+            <v-subheader inset>You have {{ getInvoice.doc.files.length }} {{ getInvoice.doc.name }}</v-subheader>
             <v-list-tile
               avatar
-              v-for="(item, i) in getInvoice.invoice.files"
+              v-for="(item, i) in getInvoice.doc.files"
               :key="i"
               @click=""
             >
