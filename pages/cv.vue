@@ -34,7 +34,6 @@
 
               <v-list-tile-action>
                 <v-speed-dial
-                  v-model="fab"
                   :direction="'left'"
                   :hover="true"
                 >
@@ -42,7 +41,6 @@
                     dark fab hover flat small
                     slot="activator"
                     color="primary"
-                    v-model="fab"
                   >
                     <v-icon>more_horiz</v-icon>
                     <v-icon>close</v-icon>
