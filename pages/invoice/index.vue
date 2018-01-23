@@ -49,7 +49,10 @@
             <v-btn
               round flat small fab
               color="primary"
-              @click="newFile({type: 'invoice', file: { id: getInvoice.files.length + 1, title: 'My first invoice', date: '01.01.2016' }})"
+              @click="newFile({
+                type: 'invoice', 
+                file: { id: getInvoice.files.length + 1, title: 'New ' + getInvoice.name + ' ' + (getInvoice.files.length + 1), date: new Date().toLocaleString() }
+              })"
             >
               <v-icon>add</v-icon>
             </v-btn>

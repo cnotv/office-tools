@@ -83,7 +83,6 @@ const store = () => {
           name: 'curriculum',
           title: 'Your curriculum',
           files: [
-            { id: '1', title: 'My first curriculum', date: '01.01.2016' }
           ],
           templates: {
             name: 'templates',
@@ -98,8 +97,6 @@ const store = () => {
           name: 'documents',
           title: 'Your documents',
           files: [
-            { id: '1', title: 'Document 0001', date: '01.01.2016' },
-            { id: '2', title: 'Document 0002', date: '02.01.2016' }
           ],
           tasks: {
             title: 'Your tasks',
@@ -117,8 +114,6 @@ const store = () => {
           name: 'invoice',
           title: 'Your invoices',
           files: [
-            { id: '1', title: 'Invoice 0001', date: '01.01.2016' },
-            { id: '2', title: 'Invoice 0002', date: '02.01.2016' }
           ],
           workgroup: {
             name: 'workgroup',
