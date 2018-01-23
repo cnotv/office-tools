@@ -1,5 +1,5 @@
-export const switchOption = ({ commit, state }, option) => {
-  commit('SWITCH_OPTION', option)
+export const switchOption = ({ commit, state }, store) => {
+  commit('SWITCH_OPTION', store)
 }
 
 export const newFile = ({ commit, state }, type) => {

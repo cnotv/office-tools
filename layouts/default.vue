@@ -28,7 +28,7 @@
       </v-list>
       <v-btn
         icon
-        @click.stop="getGlobal.miniVariant = !getGlobal.miniVariant"
+        @click.stop="switchOption('miniVariant')"
       >
         <v-icon v-html="getGlobal.miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
@@ -41,23 +41,23 @@
       <v-spacer></v-spacer>
       <v-btn
         icon
-        @click.stop="getGlobal.account = !getGlobal.account"
+        @click.stop="switchOption('account')"
       >
         <v-icon>account_circle</v-icon>
       </v-btn>
       <v-btn
         icon
-        @click.stop="getGlobal.clipped = !getGlobal.clipped"
+        @click.stop="switchOption('clipped')"
       >
         <v-icon>web</v-icon>
       </v-btn>
       <v-btn
         icon
-        @click.stop="getGlobal.fixed = !getGlobal.fixed"
+        @click.stop="switchOption('fixed')"
       >
         <v-icon>remove</v-icon>
       </v-btn>
-      <v-toolbar-side-icon @click="getGlobal.drawer = !getGlobal.drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click="switchOption('drawer')"></v-toolbar-side-icon>
     </v-toolbar>
 
     <v-content>
@@ -68,7 +68,6 @@
 
     <v-navigation-drawer
       temporary
-      right
       v-model="getGlobal.account"
       fixed
     >
@@ -177,3 +176,7 @@ export default {
   }
 }
 </script>
+
+<style>
+.overlay { z-index: 3; }
+</style>

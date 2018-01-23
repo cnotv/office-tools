@@ -31,7 +31,8 @@ const store = () => {
           // { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
           { icon: 'file_download', tooltip: 'Download', to: '/cv' },
           { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
-          { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' }
+          { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' },
+          { icon: 'delete', tooltip: 'Delete', to: '/cv' }
         ]
       },
 
