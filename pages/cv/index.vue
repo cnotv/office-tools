@@ -10,7 +10,7 @@
             <v-btn
               round flat small fab
               color="primary"
-              @click="newFile('cv')"
+              @click="newFile({type: 'cv', file: { id: getCv.files.length + 1, title: 'My first curriculum', date: '01.01.2016' }})"
             >
               <v-icon>add</v-icon>
             </v-btn>

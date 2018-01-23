@@ -30,7 +30,7 @@
             <v-btn
               round flat small fab
               color="primary"
-              @click="newFile('ocr')"
+              @click="newFile({type: 'ocr', file: { id: getOcr.files.length + 1, title: 'My first ocr', date: '01.01.2016' }})"
             >
               <v-icon>add</v-icon>
             </v-btn>
