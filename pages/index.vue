@@ -1,13 +1,5 @@
 <template>
   <section>
-    <v-layout column justify-center align-center mb-4>
-      <v-flex xs12 sm8 md6>
-        <div class="text-xs-center">
-          <logo/>
-        </div>
-      </v-flex>
-    </v-layout>
-
     <v-layout row wrap class="text-xs-center">
 
       <v-flex xs12 sm6 md4>
@@ -68,6 +60,7 @@
               <li>OCR from file</li>
               <li>OCR from URL</li>
               <li>OCR from photo/cam</li>
+              <li>Picture effects (crop, balance B/W)</li>
               <li>Translation (online only)</li>
               <li>Text to speach</li>
               <li>Settings</li>
@@ -182,11 +175,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-    Logo
   },
   computed: {
     ...mapGetters([
