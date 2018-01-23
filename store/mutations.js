@@ -15,14 +15,14 @@ export default {
     }
   },
 
-  NEW_FILE: (state, type, file = { title: 'My first curriculum', date: '01.01.2016' }) => {
+  NEW_FILE: (state, type, file = { id: state.page.cv.files.length, title: 'My first curriculum', date: '01.01.2016' }) => {
     let array
     if (type === 'cv') {
-      array = state.page.cv.doc.files
+      array = state.page.cv.files
     } else if (type === 'ocr') {
-      array = state.page.ocr.doc.files
+      array = state.page.ocr.files
     } else if (type === 'invoice') {
-      array = state.page.invoice.doc.files
+      array = state.page.invoice.files
     }
     array.push(file)
   }

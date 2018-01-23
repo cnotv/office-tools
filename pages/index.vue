@@ -13,7 +13,7 @@
             </v-btn>
           </v-toolbar>
           <v-card-text class="mt-2">
-            <p>You have {{ getCv.doc.files.length }} {{ getCv.doc.name }}</p>
+            <p>You have {{ getCv.files.length }} {{ getCv.name }}</p>
           </v-card-text>
 
           <v-toolbar>
@@ -49,7 +49,7 @@
             </v-btn>
           </v-toolbar>
           <v-card-text class="mt-2">
-            <p>You have {{ getOcr.doc.files.length }} {{ getOcr.doc.name }}</p>
+            <p>You have {{ getOcr.files.length }} {{ getOcr.name }}</p>
           </v-card-text>
 
           <v-toolbar>
@@ -85,7 +85,7 @@
             </v-btn>
           </v-toolbar>
           <v-card-text class="mt-2">
-            <p>You have {{ getInvoice.doc.files.length }} {{ getInvoice.doc.name }}</p>
+            <p>You have {{ getInvoice.files.length }} {{ getInvoice.name }}</p>
           </v-card-text>
 
           <v-toolbar>

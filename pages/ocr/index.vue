@@ -1,31 +1,52 @@
 <template>
   <section>
     <v-layout row wrap>
+      <v-flex xs12 sm6 md4>
+        <v-card class="ma-2">
+          <v-toolbar>
+            <v-toolbar-title>{{ getOcr.tasks.title }}</v-toolbar-title>
+          </v-toolbar>
+
+          <v-list>
+            <inputFile />
+            <v-list-tile
+              v-for="(item, i) in getOcr.tasks.options"
+              :key="i"
+              @click=""
+            >
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-flex>
 
       <v-flex xs12 sm6>
         <v-card class="ma-2">
           <v-toolbar>
-            <v-toolbar-title>{{ getCv.doc.title }}</v-toolbar-title>
+            <v-toolbar-title>{{ getOcr.title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn
               round flat small fab
               color="primary"
-              @click="newFile('cv')"
+              @click="newFile('ocr')"
             >
               <v-icon>add</v-icon>
             </v-btn>
           </v-toolbar>
 
           <v-list subheader>
-            <v-subheader inset>You have {{ getCv.doc.files.length }} {{ getCv.doc.name }}</v-subheader>
+            <v-subheader inset>You have {{ getOcr.files.length }} {{ getOcr.name }}</v-subheader>
             <v-list-tile
               avatar
-              v-for="(item, i) in getCv.doc.files"
+              v-for="(item, i) in getOcr.files"
               :key="i"
-              @click=""
+              nuxt
+              :to="'/ocr/files/' + item.id"
             >
               <v-list-tile-avatar>
-                <v-icon class="blue white--text" dark>assignment</v-icon>
+                <v-icon class="orange white--text" dark>assignment</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -62,52 +83,19 @@
           </v-list>
         </v-card>
       </v-flex>
-
-      <v-flex xs12 sm6>
-        <v-card class="ma-2">
-          <v-toolbar>
-            <v-toolbar-title>{{ getCv.templates.title }}</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn round flat small fab color="primary">
-              <v-icon>add</v-icon>
-            </v-btn>
-          </v-toolbar>
-
-          <v-list subheader>
-            <v-subheader inset>You have {{ getCv.templates.files.length }} {{ getCv.templates.name }}</v-subheader>
-            <v-list-tile
-              avatar
-              v-for="(item, i) in getCv.templates.files"
-              :key="i"
-              @click=""
-            >
-              <v-list-tile-avatar>
-                <v-icon class="blue white--text" dark>web</v-icon>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              </v-list-tile-content>
-
-              <v-list-tile-action>
-                <v-btn round flat small fab color="primary">
-                  <v-icon>edit</v-icon>
-                </v-btn>
-              </v-list-tile-action>
-            </v-list-tile>
-          </v-list>
-        </v-card>
-      </v-flex>
     </v-layout>
   </section>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import inputFile from '@/components/input-file'
 
 export default {
+  components: {inputFile},
   computed: {
     ...mapGetters([
-      'getCv',
+      'getOcr',
       'getGlobal'
     ])
   },

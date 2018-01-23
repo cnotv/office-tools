@@ -80,13 +80,11 @@ const store = () => {
         },
 
         cv: {
-          doc: {
-            name: 'curriculum',
-            title: 'Your curriculum',
-            files: [
-              { title: 'My first curriculum', date: '01.01.2016' }
-            ]
-          },
+          name: 'curriculum',
+          title: 'Your curriculum',
+          files: [
+            { id: '1', title: 'My first curriculum', date: '01.01.2016' }
+          ],
           templates: {
             name: 'templates',
             title: 'Your templates',
@@ -97,18 +95,16 @@ const store = () => {
         },
 
         ocr: {
-          doc: {
-            name: 'documents',
-            title: 'Your documents',
-            files: [
-              { title: 'Document 0001', date: '01.01.2016' },
-              { title: 'Document 0002', date: '02.01.2016' }
-            ]
-          },
+          name: 'documents',
+          title: 'Your documents',
+          files: [
+            { id: '1', title: 'Document 0001', date: '01.01.2016' },
+            { id: '2', title: 'Document 0002', date: '02.01.2016' }
+          ],
           tasks: {
             title: 'Your tasks',
             options: [
-              { title: 'Load from file', icon: 'file', to: '/' },
+              // { title: 'Load from file', icon: 'file', to: '/' },
               { title: 'Load from URL', icon: 'link', to: '/' },
               { title: 'Load from camera', icon: 'camera', to: '/' },
               { title: 'Convert document', icon: '', to: '/' },
@@ -118,14 +114,12 @@ const store = () => {
         },
 
         invoice: {
-          doc: {
-            name: 'invoice',
-            title: 'Your invoices',
-            files: [
-              { title: 'Invoice 0001', date: '01.01.2016' },
-              { title: 'Invoice 0002', date: '02.01.2016' }
-            ]
-          },
+          name: 'invoice',
+          title: 'Your invoices',
+          files: [
+            { id: '1', title: 'Invoice 0001', date: '01.01.2016' },
+            { id: '2', title: 'Invoice 0002', date: '02.01.2016' }
+          ],
           workgroup: {
             name: 'workgroup',
             title: 'Your workgroup',
