@@ -1,4 +1,3 @@
-export const getNav = state => state.navigation
 export const getGlobal = state => state.global
 export const getSettings = state => state.page.settings
 export const getIndex = state => state.page.index

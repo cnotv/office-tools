@@ -27,38 +27,13 @@ const store = () => {
         account: false,
         dialog: false,
         actionFile: [
-          { icon: 'print', tooltip: 'Print', to: '/cv' },
-          // { icon: 'mode_edit', tooltip: 'Edit', to: '/cv' },
-          { icon: 'file_download', tooltip: 'Download', to: '/cv' },
-          { icon: 'link', tooltip: 'Generate encypted link', to: '/cv' },
-          { icon: 'cloud_upload', tooltip: 'Upload to cloud', to: '/cv' },
-          { icon: 'delete', tooltip: 'Delete', to: '/cv' }
+          { tooltip: 'Print', icon: 'print', to: '/cv' },
+          // { tooltip: 'Edit', icon: 'mode_edit', to: '/cv' },
+          { tooltip: 'Download', icon: 'file_download', to: '/cv' },
+          { tooltip: 'Generate encypted link', icon: 'link', to: '/cv' },
+          { tooltip: 'Upload to cloud', icon: 'cloud_upload', to: '/cv' },
+          { tooltip: 'Delete', icon: 'delete', to: '/cv' }
         ]
-      },
-
-      navigation: {
-        main: [
-          { icon: 'home', title: 'Dashboard', to: '/' },
-          { icon: 'settings', title: 'Settings', to: '/settings' },
-          { icon: 'portrait', title: 'Curriculum', to: '/cv' },
-          { icon: 'find_in_page', title: 'OCR', to: '/ocr' },
-          { icon: 'receipt', title: 'Invoices', to: '/invoice' }
-        ],
-        account: {
-          access: [
-            { title: 'Register', class: '', to: '/', click: '' },
-            { title: 'Login', class: '', to: '/', click: '' },
-            { title: 'Remove settings', class: 'red', to: '/', click: '' }
-          ],
-          options: [
-            { title: 'Preferences', class: '', to: '/', click: '' },
-            { title: 'Change E-mail', class: '', to: '/', click: '' },
-            { title: 'Change Password', class: '', to: '/', click: '' },
-            { title: 'Change Avatar', class: '', to: '/', click: '' },
-            { title: 'Reset', class: '', to: '/', click: '' },
-            { title: 'Delete account', class: 'red', to: '/', click: '' }
-          ]
-        }
       },
 
       page: {

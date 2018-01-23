@@ -8,7 +8,7 @@
       app
     >
       <v-list>
-        <template v-for="(item, i) in getNav.main">
+        <template v-for="(item, i) in navigation.main">
           <v-list-tile
             router
             :to="item.to"
@@ -89,7 +89,7 @@
 
       <v-list>
         <v-list-tile
-          v-for="(item, i) in getNav.account.access"
+          v-for="(item, i) in navigation.account.access"
           :key="i"
           @click=""
         >
@@ -103,7 +103,7 @@
 
       <v-list>
         <v-list-tile
-          v-for="(item, i) in getNav.account.options"
+          v-for="(item, i) in navigation.account.options"
           :key="i"
           @click=""
         >
@@ -132,13 +132,38 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   data() {
     return {
-      status: true
+      navigation: {
+        main: [
+          { title: 'Dashboard', icon: 'home', to: '/' },
+          { title: 'Settings', icon: 'settings', to: '/settings' },
+          { title: 'Curriculum', icon: 'portrait', to: '/cv' },
+          { title: 'OCR', icon: 'find_in_page', to: '/ocr' },
+          { title: 'Invoices', icon: 'receipt', to: '/invoice' }
+        ],
+        account: {
+          access: [
+            { title: 'Register', class: '', to: '/', click: '' },
+            { title: 'Login', class: '', to: '/', click: '' },
+            { title: 'Remove settings', class: 'red', to: '/', click: '' }
+          ],
+          options: [
+            { title: 'Preferences', class: '', to: '/', click: '' },
+            { title: 'Change E-mail', class: '', to: '/', click: '' },
+            { title: 'Change Password', class: '', to: '/', click: '' },
+            { title: 'Change Avatar', class: '', to: '/', click: '' },
+            { title: 'Reset', class: '', to: '/', click: '' },
+            { title: 'Delete account', class: 'red', to: '/', click: '' }
+          ]
+        }
+      }
     }
   },
   computed: {
     ...mapGetters([
-      'getNav',
-      'getGlobal'
+      'getGlobal',
+      'getCv',
+      'getInvoice',
+      'getOcr'
     ])
   },
   methods: {
