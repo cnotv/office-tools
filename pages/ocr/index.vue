@@ -32,7 +32,7 @@
               color="primary"
               @click="newFile({
                 type: 'ocr', 
-                file: { id: getOcr.files.length + 1, title: 'New ' + getOcr.name + ' ' + (getOcr.files.length + 1), date: new Date().toLocaleString() }
+                file: { id: getOcr.counter, title: 'New ' + getOcr.name + ' ' + getOcr.counter, date: new Date().toLocaleString() }
               })"
             >
               <v-icon>add</v-icon>
@@ -49,7 +49,7 @@
               :to="'/ocr/files/' + item.id"
             >
               <v-list-tile-avatar>
-                <v-icon class="orange white--text" dark>assignment</v-icon>
+                <v-icon class="orange white--text" dark>insert_drive_file</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>

@@ -51,7 +51,7 @@
               color="primary"
               @click="newFile({
                 type: 'invoice', 
-                file: { id: getInvoice.files.length + 1, title: 'New ' + getInvoice.name + ' ' + (getInvoice.files.length + 1), date: new Date().toLocaleString() }
+                file: { id: getInvoice.counter, title: 'New ' + getInvoice.name + ' ' + getInvoice.counter, date: new Date().toLocaleString() }
               })"
             >
               <v-icon>add</v-icon>
@@ -68,7 +68,7 @@
               :to="'/invoice/files/' + item.id"
             >
               <v-list-tile-avatar>
-                <v-icon class="green white--text" dark>assignment</v-icon>
+                <v-icon class="green white--text" dark>insert_drive_file</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>

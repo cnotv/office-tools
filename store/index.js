@@ -57,6 +57,7 @@ const store = () => {
         cv: {
           name: 'curriculum',
           title: 'Your curriculum',
+          counter: '1',
           files: [
           ],
           templates: {
@@ -71,6 +72,7 @@ const store = () => {
         ocr: {
           name: 'documents',
           title: 'Your documents',
+          counter: '1',
           files: [
           ],
           tasks: {
@@ -88,6 +90,7 @@ const store = () => {
         invoice: {
           name: 'invoice',
           title: 'Your invoices',
+          counter: '1',
           files: [
           ],
           workgroup: {

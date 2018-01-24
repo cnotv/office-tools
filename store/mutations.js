@@ -19,10 +19,13 @@ export default {
     let array
     if (payload.type === 'cv') {
       array = state.page.cv.files
+      state.page.cv.counter++
     } else if (payload.type === 'ocr') {
       array = state.page.ocr.files
+      state.page.ocr.counter++
     } else if (payload.type === 'invoice') {
       array = state.page.invoice.files
+      state.page.invoice.counter++
     }
     array.push(payload.file)
   }

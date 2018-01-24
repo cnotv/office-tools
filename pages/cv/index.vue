@@ -12,7 +12,7 @@
               color="primary"
               @click="newFile({
                 type: 'cv', 
-                file: { id: getCv.files.length + 1, title: 'New ' + getCv.name + ' ' + (getCv.files.length + 1), date: new Date().toLocaleString() }
+                file: { id: getCv.counter, title: 'New ' + getCv.name + ' ' + getCv.counter, date: new Date().toLocaleString() }
               })"
             >
               <v-icon>add</v-icon>
@@ -29,7 +29,7 @@
               :to="'/cv/files/' + item.id"
             >
               <v-list-tile-avatar>
-                <v-icon class="blue white--text" dark>assignment</v-icon>
+                <v-icon class="blue white--text" dark>insert_drive_file</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
