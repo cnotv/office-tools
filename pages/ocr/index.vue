@@ -1,26 +1,6 @@
 <template>
   <section>
     <v-layout row wrap>
-      <v-flex xs12 sm6 md4>
-        <v-card class="ma-2">
-          <v-toolbar>
-            <v-toolbar-title>{{ getOcr.tasks.title }}</v-toolbar-title>
-          </v-toolbar>
-
-          <v-list>
-            <inputFile />
-            <v-list-tile
-              v-for="(item, i) in getOcr.tasks.options"
-              :key="i"
-              @click=""
-            >
-              <v-list-tile-content>
-                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-card>
-      </v-flex>
 
       <v-flex xs12 sm6>
         <v-card class="ma-2">
@@ -34,6 +14,13 @@
                 type: 'ocr', 
                 file: { id: getOcr.counter, title: 'New ' + getOcr.name + ' ' + getOcr.counter, date: new Date().toLocaleString() }
               })"
+            >
+              <v-icon>add</v-icon>
+            </v-btn>
+            <v-btn
+              round flat small fab
+              color="primary"
+              :to="'/ocr/files/new/'"
             >
               <v-icon>add</v-icon>
             </v-btn>
@@ -86,6 +73,28 @@
           </v-list>
         </v-card>
       </v-flex>
+
+      <v-flex xs12 sm6 md4>
+        <v-card class="ma-2">
+          <v-toolbar>
+            <v-toolbar-title>{{ getOcr.tasks.title }}</v-toolbar-title>
+          </v-toolbar>
+
+          <v-list>
+            <inputFile />
+            <v-list-tile
+              v-for="(item, i) in getOcr.tasks.options"
+              :key="i"
+              @click=""
+            >
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-flex>
+
     </v-layout>
   </section>
 </template>

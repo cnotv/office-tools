@@ -17,6 +17,13 @@
             >
               <v-icon>add</v-icon>
             </v-btn>
+            <v-btn
+              round flat small fab
+              color="primary"
+              :to="'/cv/files/new/'"
+            >
+              <v-icon>add</v-icon>
+            </v-btn>
           </v-toolbar>
 
           <v-list subheader>

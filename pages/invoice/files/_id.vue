@@ -1,5 +1,7 @@
 <template>
-  <section>
+  <section
+    v-if="getInvoice.files[$route.params.id - 1]"
+  >
     <v-layout row wrap>
 
       <v-flex xs12>
@@ -9,15 +11,29 @@
               round flat small fab
               color="primary"
               nuxt
-              to="/invoice"
+              to="/cv"
             >
               <v-icon>keyboard_arrow_left</v-icon>
             </v-btn>
-            <v-toolbar-title>Invoice - {{ $route.params.id }}</v-toolbar-title>
+            <v-toolbar-title>#{{ getInvoice.files[$route.params.id - 1].id }} - {{ getInvoice.files[$route.params.id - 1].title }}</v-toolbar-title>
           </v-toolbar>
+
+          <v-card-text>
+            {{ getInvoice.files[$route.params.id - 1].content }}
+          </v-card-text>
         </v-card>
       </v-flex>
     </v-layout>
+  </section>
+  <section v-else>
+    <v-btn
+      round flat small fab
+      color="primary"
+      nuxt
+      to="/invoice"
+    >
+      <v-icon>keyboard_arrow_left</v-icon>
+    </v-btn>
   </section>
 </template>
 
@@ -25,9 +41,10 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  props: ['title'],
   computed: {
     ...mapGetters([
-      'getCv',
+      'getInvoice',
       'getGlobal'
     ])
   },
