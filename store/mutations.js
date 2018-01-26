@@ -28,5 +28,15 @@ export default {
       state.page.invoice.counter++
     }
     array.push(payload.file)
+  },
+
+  UPDATE_FILE: (state, payload) => {
+    if (payload.type === 'cv') {
+      state.page.cv.files[payload.id] = payload.file
+    } else if (payload.type === 'ocr') {
+      state.page.ocr.files[payload.id] = payload.file
+    } else if (payload.type === 'invoice') {
+      state.page.invoice.files[payload.id] = payload.file
+    }
   }
 }

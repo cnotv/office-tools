@@ -41,7 +41,6 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  props: ['title'],
   computed: {
     ...mapGetters([
       'getInvoice',

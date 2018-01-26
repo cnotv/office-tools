@@ -12,7 +12,7 @@
               color="primary"
               @click="newFile({
                 type: 'cv', 
-                file: { id: getCv.counter, title: 'New ' + getCv.name + ' ' + getCv.counter, date: new Date().toLocaleString() }
+                file: { id: getCv.counter, title: 'New ' + getCv.name  + ' (' + getCv.counter + ')', date: new Date().toLocaleString() }
               })"
             >
               <v-icon>add</v-icon>
@@ -66,8 +66,6 @@
                     <v-icon>{{ btn.icon }}</v-icon>
                   </v-btn>
                 </v-speed-dial>
-
-                </v-btn>
               </v-list-tile-action>
             </v-list-tile>
           </v-list>

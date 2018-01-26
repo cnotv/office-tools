@@ -5,3 +5,7 @@ export const switchOption = ({ commit, state }, store) => {
 export const newFile = ({ commit, state }, payload) => {
   commit('NEW_FILE', payload)
 }
+
+export const updateFile = ({ commit, state }, payload) => {
+  commit('UPDATE_FILE', payload)
+}
