@@ -81,7 +81,7 @@ export default {
         file: {
           id: this.getCv.counter,
           title: this.title || this.getCv.title + ' (' + this.getCv.counter + ')',
-          content: this.content,
+          content: this.content || '',
           date: new Date().toLocaleString()
         }
       }).then(() => this.$router.replace({ path: '/cv' }))

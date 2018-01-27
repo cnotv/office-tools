@@ -18,7 +18,7 @@
               <v-icon>add</v-icon>
             </v-btn>
             <v-btn
-              round flat small fab
+              round small fab
               color="primary"
               :to="'/cv/files/new/'"
             >
@@ -117,7 +117,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'newFile'
+      'newFile',
+      'deleteFile'
     ])
   }
 }

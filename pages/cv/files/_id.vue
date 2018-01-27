@@ -41,6 +41,7 @@
               <v-text-field
                 label="Your informations"
                 v-model="content"
+                ref="content"
                 counter
                 max="600"
                 full-width
@@ -58,6 +59,12 @@
               @click=""
             >
               <v-icon>{{ btn.icon }}</v-icon>
+            </v-btn>
+            <v-btn
+              round flat small fab
+              @click="deleteFile"
+            >
+              <v-icon>delete</v-icon>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -95,7 +102,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'updateFile'
+      'updateFile',
+      'deleteFile'
     ]),
     updateFile() {
       this.$store.dispatch('updateFile', {
@@ -104,9 +112,15 @@ export default {
         file: {
           id: this.$route.params.id,
           title: this.title || this.getCv.title + ' (' + this.$route.params.id + ')',
-          content: this.content,
+          content: this.content || '',
           date: new Date().toLocaleString()
         }
+      }).then(() => this.$router.replace({ path: '/cv' }))
+    },
+    deleteFile() {
+      this.$store.dispatch('deleteFile', {
+        type: 'cv',
+        id: this.$route.params.id
       }).then(() => this.$router.replace({ path: '/cv' }))
     }
   }

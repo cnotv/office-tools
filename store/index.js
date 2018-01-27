@@ -27,12 +27,12 @@ const store = () => {
         account: false,
         dialog: false,
         actionFile: [
-          { tooltip: 'Print', icon: 'print', to: '/cv' },
-          // { tooltip: 'Edit', icon: 'mode_edit', to: '/cv' },
-          { tooltip: 'Download', icon: 'file_download', to: '/cv' },
-          { tooltip: 'Generate encypted link', icon: 'link', to: '/cv' },
-          { tooltip: 'Upload to cloud', icon: 'cloud_upload', to: '/cv' },
-          { tooltip: 'Delete', icon: 'delete', to: '/cv' }
+          { tooltip: 'Print', icon: 'print', click: '' },
+          // { tooltip: 'Edit', icon: 'mode_edit', click: '' },
+          { tooltip: 'Download', icon: 'file_download', click: '' },
+          { tooltip: 'Generate encypted link', icon: 'link', click: '' },
+          { tooltip: 'Upload to cloud', icon: 'cloud_upload', click: '' },
+          { tooltip: 'Delete', icon: 'delete', click: '' }
         ]
       },
 

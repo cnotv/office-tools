@@ -9,3 +9,7 @@ export const newFile = ({ commit, state }, payload) => {
 export const updateFile = ({ commit, state }, payload) => {
   commit('UPDATE_FILE', payload)
 }
+
+export const deleteFile = ({ commit, state }, payload) => {
+  commit('REMOVE_FILE', payload)
+}
