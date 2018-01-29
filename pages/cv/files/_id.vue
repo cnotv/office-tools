@@ -90,16 +90,18 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   data() {
     return {
-      title: this.$store.state.page.cv.files[this.$route.params.id - 1].title,
-      content: this.$store.state.page.cv.files[this.$route.params.id - 1].content
+      title: '',
+      content: ''
     }
   },
+
   computed: {
     ...mapGetters([
       'getCv',
       'getGlobal'
     ])
   },
+
   methods: {
     ...mapActions([
       'updateFile',
@@ -122,6 +124,13 @@ export default {
         type: 'cv',
         id: this.$route.params.id
       }).then(() => this.$router.replace({ path: '/cv' }))
+    }
+  },
+
+  created() {
+    if (this.getCv.files[this.$route.params.id - 1]) {
+      this.title = this.getCv.files[this.$route.params.id - 1].title
+      this.content = this.getCv.files[this.$route.params.id - 1].content
     }
   }
 }
