@@ -32,6 +32,7 @@
               avatar
               v-for="(item, i) in getCv.files"
               :key="i"
+              v-if="item"
               nuxt
               :to="'/cv/files/' + item.id"
             >
