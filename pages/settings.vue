@@ -14,6 +14,7 @@
               </v-list-tile>
               <v-list-tile>
                 <v-text-field
+                  v-model="email"
                   label="E-mail"
                 ></v-text-field>
               </v-list-tile>
@@ -21,6 +22,7 @@
             <v-list>
               <v-list-tile>
                 <v-text-field
+                  v-model="name"
                   label="Name"
                 ></v-text-field>
               </v-list-tile>
@@ -28,10 +30,23 @@
             <v-list>
               <v-list-tile>
                 <v-text-field
+                  v-model="phone"
                   label="Phone"
                 ></v-text-field>
               </v-list-tile>
             </v-list>
+
+            <v-card-actions>
+              <v-btn
+                round
+                small
+                fab
+                color="primary"
+                @click="updateSettings"
+              >
+                <v-icon>update</v-icon>
+              </v-btn>
+            </v-card-actions>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -44,7 +59,7 @@
 
           <v-list>
             <v-list-tile
-              v-for="(item, i) in getSettings.social"
+              v-for="(item, i) in this.social"
               :key="i"
               @click=""
             >
@@ -64,7 +79,7 @@
 
           <v-list>
             <v-list-tile
-              v-for="(item, i) in getSettings.data"
+              v-for="(item, i) in this.handling"
               :key="i"
               @click=""
             >
@@ -80,13 +95,52 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  data() {
+    return {
+      fields: {
+        logo: '',
+        name: '',
+        email: '',
+        phone: ''
+      },
+      handling: [
+        { title: 'Export JSON', icon: 'code', to: '/' },
+        { title: 'Export link', icon: '', to: '/' },
+        { title: 'Import with link', icon: '', to: '/' },
+        { title: 'Reset', icon: 'red', to: '/' }
+      ],
+      social: [
+        { title: 'Linkedin', class: '', to: '/' },
+        { title: 'Stackoverflow', class: '', to: '/' },
+        { title: 'Github', class: '', to: '/' }
+      ]
+    }
+  },
+
   computed: {
     ...mapGetters([
-      'getSettings'
+      'getSettings',
+      'getGlobal'
     ])
+  },
+
+  methods: {
+    ...mapActions([
+      'updateSettings'
+    ]),
+    updateSettings() {
+      this.$store.dispatch('updateSettings', {
+      })
+    }
+  },
+
+  created() {
+    for (this.fields in this.getSettings.data) {
+      console.log(this.fields)
+    }
   }
 }
 </script>

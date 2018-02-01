@@ -191,10 +191,12 @@ export default {
 
       // console.log('Loading offline mode...')
       if (window.localStorage.getItem('vuex') === null) {
-        this.$store.dispatch('commitPosts')
+        console.log('update action')
+        // this.$store.dispatch('commitPosts')
         // console.log('Cant load offline: you have no store :( ', window.localStorage.getItem('vuex') === null)
       } else {
-        this.$store.commit('commitPosts', JSON.parse(window.localStorage.getItem('vuex')))
+        console.log('update action')
+        // this.$store.commit('commitPosts', JSON.parse(window.localStorage.getItem('vuex')))
         // console.log('Offline mode loaded')
       }
     }

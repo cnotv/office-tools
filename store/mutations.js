@@ -15,6 +15,10 @@ export default {
     }
   },
 
+  UPDATE_SETTINGS: (state, payload) => {
+    state.page.settings.data = payload.file
+  },
+
   NEW_FILE: (state, payload) => {
     let array
     if (payload.type === 'cv') {

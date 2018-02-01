@@ -39,15 +39,6 @@ const store = () => {
       page: {
         settings: {
           data: [
-            { title: 'Export JSON', icon: 'code', to: '/' },
-            { title: 'Export link', icon: '', to: '/' },
-            { title: 'Import with link', icon: '', to: '/' },
-            { title: 'Reset', icon: 'red', to: '/' }
-          ],
-          social: [
-            { title: 'Linkedin', class: '', to: '/' },
-            { title: 'Stackoverflow', class: '', to: '/' },
-            { title: 'Github', class: '', to: '/' }
           ]
         },
 

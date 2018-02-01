@@ -19,6 +19,7 @@
             <v-text-field
               label="Title"
               v-model="title"
+              @keyup.enter="updateFile"
               required
               single-line
               full-width
@@ -32,7 +33,7 @@
               color="primary"
               @click="updateFile"
             >
-              <v-icon>add</v-icon>
+              <v-icon>update</v-icon>
             </v-btn>
           </v-card-title>
 
@@ -41,6 +42,7 @@
               <v-text-field
                 label="Your informations"
                 v-model="content"
+                @keyup.ctrl.enter="updateFile"
                 ref="content"
                 counter
                 max="600"
