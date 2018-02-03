@@ -1,3 +1,8 @@
+// sync data with localstorage
+export const sync = ({ commit, state }) => {
+  commit('SYNC', state)
+}
+
 export const switchOption = ({ commit, state }, store) => {
   commit('SWITCH_OPTION', store)
 }

@@ -1,4 +1,9 @@
 export default {
+  SYNC: (state, store) => {
+    state.page = store.page
+    state.global = store.global
+  },
+
   SWITCH_OPTION: (state, store) => {
     if (store === 'clipped') {
       state.global.clipped = !state.global.clipped

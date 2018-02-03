@@ -4,9 +4,9 @@ import * as getters from './getters'
 import mutations from './mutations'
 import VuexPersist from 'vuex-persist'
 
-let vuexLocalStorage = null
+let vuexLocal = null
 if (process.browser) {
-  vuexLocalStorage = new VuexPersist({
+  vuexLocal = new VuexPersist({
     key: 'vuex', // The key to store the state on in the storage provider.
     storage: window.localStorage // or window.sessionStorage or localForage
   })
@@ -37,20 +37,16 @@ const store = () => {
       },
 
       page: {
+        index: {},
         settings: {
-          data: [
-          ]
-        },
-
-        index: {
+          data: []
         },
 
         cv: {
           name: 'curriculum',
           title: 'Your curriculum',
           counter: '1',
-          files: [
-          ],
+          files: [],
           templates: {
             name: 'templates',
             title: 'Your templates',
@@ -64,8 +60,7 @@ const store = () => {
           name: 'documents',
           title: 'Your documents',
           counter: '1',
-          files: [
-          ],
+          files: [],
           tasks: {
             title: 'Your tasks',
             options: [
@@ -82,8 +77,7 @@ const store = () => {
           name: 'invoice',
           title: 'Your invoices',
           counter: '1',
-          files: [
-          ],
+          files: [],
           workgroup: {
             name: 'workgroup',
             title: 'Your workgroup',
@@ -97,7 +91,7 @@ const store = () => {
     actions,
     mutations,
     getters,
-    plugins: process.browser ? [vuexLocalStorage.plugin] : []
+    plugins: process.browser ? [vuexLocal.plugin] : []
   })
 }
 

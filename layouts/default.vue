@@ -188,15 +188,17 @@ export default {
     if (!this.status) {
       window.addEventListener('offline', this._toggleNetworkStatus)
       window.addEventListener('online', this._toggleNetworkStatus)
+    }
 
+    if (window) {
       // console.log('Loading offline mode...')
       if (window.localStorage.getItem('vuex') === null) {
-        console.log('update action')
-        // this.$store.dispatch('commitPosts')
+        // console.log('deploying localStorage')
+        this.$store.dispatch('sync')
         // console.log('Cant load offline: you have no store :( ', window.localStorage.getItem('vuex') === null)
       } else {
-        console.log('update action')
-        // this.$store.commit('commitPosts', JSON.parse(window.localStorage.getItem('vuex')))
+        // console.log('loading from localStorage')
+        this.$store.commit('SYNC', JSON.parse(window.localStorage.getItem('vuex')))
         // console.log('Offline mode loaded')
       }
     }
