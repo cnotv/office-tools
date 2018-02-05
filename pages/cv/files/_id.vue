@@ -53,22 +53,7 @@
             </v-flex>
           </v-card-text>
 
-          <v-card-actions>
-            <v-btn
-              round flat small fab
-              v-for="(btn, i) in getGlobal.actionFile"
-              :key="i"
-              @click=""
-            >
-              <v-icon>{{ btn.icon }}</v-icon>
-            </v-btn>
-            <v-btn
-              round flat small fab
-              @click="deleteFile"
-            >
-              <v-icon>delete</v-icon>
-            </v-btn>
-          </v-card-actions>
+          <office-actions :type="'cv'"/>
         </v-card>
       </v-flex>
     </v-layout>
@@ -88,8 +73,10 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import officeActions from '@/components/actions'
 
 export default {
+  components: { officeActions },
   data() {
     return {
       title: '',
@@ -99,15 +86,13 @@ export default {
 
   computed: {
     ...mapGetters([
-      'getCv',
-      'getGlobal'
+      'getCv'
     ])
   },
 
   methods: {
     ...mapActions([
-      'updateFile',
-      'deleteFile'
+      'updateFile'
     ]),
     updateFile() {
       this.$store.dispatch('updateFile', {
@@ -119,12 +104,6 @@ export default {
           content: this.content || '',
           date: new Date().toLocaleString()
         }
-      }).then(() => this.$router.replace({ path: '/cv' }))
-    },
-    deleteFile() {
-      this.$store.dispatch('deleteFile', {
-        type: 'cv',
-        id: this.$route.params.id
       }).then(() => this.$router.replace({ path: '/cv' }))
     }
   },

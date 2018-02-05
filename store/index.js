@@ -32,15 +32,7 @@ const store = () => {
         miniVariant: false,
         fixed: false,
         account: false,
-        dialog: false,
-        actionFile: [
-          { tooltip: 'Print', icon: 'print', click: '' },
-          // { tooltip: 'Edit', icon: 'mode_edit', click: '' },
-          { tooltip: 'Download', icon: 'file_download', click: '' },
-          { tooltip: 'Generate encypted link', icon: 'link', click: '' },
-          { tooltip: 'Upload to cloud', icon: 'cloud_upload', click: '' },
-          { tooltip: 'Delete', icon: 'delete', click: '' }
-        ]
+        dialog: false
       },
 
       page: {

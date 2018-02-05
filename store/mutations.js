@@ -55,9 +55,9 @@ export default {
       // state.page.cv.files = state.page.cv.files.filter(file => file.id !== parseInt(payload.id))
       state.page.cv.files[payload.id - 1] = null
     } else if (payload.type === 'ocr') {
-      state.page.ocr.files = state.page.ocr.files.slice(payload.id)
+      state.page.ocr.files[payload.id - 1] = null
     } else if (payload.type === 'invoice') {
-      state.page.invoice.files = state.page.invoice.files.slice(payload.id)
+      state.page.invoice.files[payload.id - 1] = null
     }
   }
 }
