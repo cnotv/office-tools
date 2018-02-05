@@ -32,11 +32,12 @@
               avatar
               v-for="(item, i) in getOcr.files"
               :key="i"
+              v-if="item"
               nuxt
               :to="'/ocr/files/' + item.id"
             >
               <v-list-tile-avatar>
-                <v-icon class="orange white--text" dark>insert_drive_file</v-icon>
+                <v-icon class="blue white--text" dark>insert_drive_file</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -66,8 +67,6 @@
                     <v-icon>{{ btn.icon }}</v-icon>
                   </v-btn>
                 </v-speed-dial>
-
-                </v-btn>
               </v-list-tile-action>
             </v-list-tile>
           </v-list>
