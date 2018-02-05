@@ -39,7 +39,12 @@ const store = () => {
       page: {
         index: {},
         settings: {
-          data: []
+          fields: [
+            { name: 'logo', value: '' },
+            { name: 'name', value: '' },
+            { name: 'email', value: '' },
+            { name: 'phone', value: '' }
+          ]
         },
 
         cv: {

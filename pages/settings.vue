@@ -5,6 +5,16 @@
         <v-card class="ma-2">
           <v-toolbar>
             <v-toolbar-title>Common info</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn
+              round
+              small
+              fab
+              color="primary"
+              @click="updateSettings"
+            >
+              <v-icon>update</v-icon>
+            </v-btn>
           </v-toolbar>
 
           <v-card-text>
@@ -12,41 +22,19 @@
               <v-list-tile>
                 Attach logo
               </v-list-tile>
-              <v-list-tile>
-                <v-text-field
-                  v-model="email"
-                  label="E-mail"
-                ></v-text-field>
-              </v-list-tile>
-            </v-list>
-            <v-list>
-              <v-list-tile>
-                <v-text-field
-                  v-model="name"
-                  label="Name"
-                ></v-text-field>
-              </v-list-tile>
-            </v-list>
-            <v-list>
-              <v-list-tile>
-                <v-text-field
-                  v-model="phone"
-                  label="Phone"
-                ></v-text-field>
-              </v-list-tile>
-            </v-list>
 
-            <v-card-actions>
-              <v-btn
-                round
-                small
-                fab
-                color="primary"
-                @click="updateSettings"
+              <v-list-tile
+                v-for="(item, i) in getSettings.fields"
+                :key="i"
+                v-if="item"
               >
-                <v-icon>update</v-icon>
-              </v-btn>
-            </v-card-actions>
+                <v-text-field
+                  v-model="getSettings.fields[i].value"
+                  :label="item.name"
+                  @keyup.enter="updateSettings"
+                ></v-text-field>
+              </v-list-tile>
+            </v-list>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -100,12 +88,6 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   data() {
     return {
-      fields: {
-        logo: '',
-        name: '',
-        email: '',
-        phone: ''
-      },
       handling: [
         { title: 'Export JSON', icon: 'code', to: '/' },
         { title: 'Export link', icon: '', to: '/' },
@@ -132,14 +114,7 @@ export default {
       'updateSettings'
     ]),
     updateSettings() {
-      this.$store.dispatch('updateSettings', {
-      })
-    }
-  },
-
-  created() {
-    for (this.fields in this.getSettings.data) {
-      console.log(this.fields)
+      this.$store.dispatch('updateSettings', this.fields)
     }
   }
 }

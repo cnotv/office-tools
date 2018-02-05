@@ -20,8 +20,8 @@ export default {
     }
   },
 
-  UPDATE_SETTINGS: (state, payload) => {
-    state.page.settings.data = payload.file
+  UPDATE_SETTINGS: (state, fields) => {
+    state.page.settings.data = fields
   },
 
   NEW_FILE: (state, payload) => {

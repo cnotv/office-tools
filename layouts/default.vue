@@ -91,6 +91,7 @@
         <v-list-tile
           v-for="(item, i) in navigation.account.access"
           :key="i"
+          :class="item.class"
           @click=""
         >
           <v-list-tile-content>
@@ -105,6 +106,7 @@
         <v-list-tile
           v-for="(item, i) in navigation.account.options"
           :key="i"
+          :class="item.class"
           @click=""
         >
           <v-list-tile-content>
@@ -144,7 +146,7 @@ export default {
           access: [
             { title: 'Register', class: '', to: '/', click: '' },
             { title: 'Login', class: '', to: '/', click: '' },
-            { title: 'Remove settings', class: 'red', to: '/', click: '' }
+            { title: 'Remove settings', class: '', to: '/', click: '' }
           ],
           options: [
             { title: 'Preferences', class: '', to: '/', click: '' },
@@ -152,7 +154,7 @@ export default {
             { title: 'Change Password', class: '', to: '/', click: '' },
             { title: 'Change Avatar', class: '', to: '/', click: '' },
             { title: 'Reset', class: '', to: '/', click: '' },
-            { title: 'Delete account', class: 'red', to: '/', click: '' }
+            { title: 'Delete account', class: '', to: '/', click: '' }
           ]
         }
       }
