@@ -12,6 +12,13 @@ if (process.browser) {
   })
 }
 
+const settingsObj = [
+  { name: 'logo', value: '' },
+  { name: 'name', value: '' },
+  { name: 'email', value: '' },
+  { name: 'phone', value: '' }
+]
+
 const store = () => {
   return new Vuex.Store({
     state: {
@@ -39,18 +46,14 @@ const store = () => {
       page: {
         index: {},
         settings: {
-          fields: [
-            { name: 'logo', value: '' },
-            { name: 'name', value: '' },
-            { name: 'email', value: '' },
-            { name: 'phone', value: '' }
-          ]
+          settings: settingsObj
         },
 
         cv: {
           name: 'curriculum',
           title: 'Your curriculum',
           counter: '1',
+          settings: settingsObj,
           files: [],
           templates: {
             name: 'templates',
@@ -82,6 +85,7 @@ const store = () => {
           name: 'invoice',
           title: 'Your invoices',
           counter: '1',
+          settings: settingsObj,
           files: [],
           workgroup: {
             name: 'workgroup',

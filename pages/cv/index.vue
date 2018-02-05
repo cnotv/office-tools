@@ -74,6 +74,8 @@
       </v-flex>
 
       <v-flex xs12 sm6>
+        <office-settings :fields="getCv.settings"/>
+
         <v-card class="ma-2">
           <v-toolbar>
             <v-toolbar-title>{{ getCv.templates.title }}</v-toolbar-title>
@@ -108,8 +110,10 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import officeSettings from '@/components/settings'
 
 export default {
+  components: { officeSettings },
   computed: {
     ...mapGetters([
       'getCv',
@@ -119,7 +123,8 @@ export default {
   methods: {
     ...mapActions([
       'newFile',
-      'deleteFile'
+      'deleteFile',
+      'updateSettings'
     ])
   }
 }

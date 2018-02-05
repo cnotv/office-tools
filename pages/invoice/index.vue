@@ -111,6 +111,8 @@
             </v-list-tile>
           </v-list>
         </v-card>
+
+        <office-settings :fields="getInvoice.settings"/>
       </v-flex>
 
     </v-layout>
@@ -119,8 +121,10 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import officeSettings from '@/components/settings'
 
 export default {
+  components: { officeSettings },
   computed: {
     ...mapGetters([
       'getInvoice',

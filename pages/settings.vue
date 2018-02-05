@@ -2,41 +2,7 @@
   <section>
     <v-layout row wrap>
       <v-flex xs12>
-        <v-card class="ma-2">
-          <v-toolbar>
-            <v-toolbar-title>Common info</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn
-              round
-              small
-              fab
-              color="primary"
-              @click="updateSettings"
-            >
-              <v-icon>update</v-icon>
-            </v-btn>
-          </v-toolbar>
-
-          <v-card-text>
-            <v-list>
-              <v-list-tile>
-                Attach logo
-              </v-list-tile>
-
-              <v-list-tile
-                v-for="(item, i) in getSettings.fields"
-                :key="i"
-                v-if="item"
-              >
-                <v-text-field
-                  v-model="getSettings.fields[i].value"
-                  :label="item.name"
-                  @keyup.enter="updateSettings"
-                ></v-text-field>
-              </v-list-tile>
-            </v-list>
-          </v-card-text>
-        </v-card>
+        <office-settings :fields="getSettings.settings"/>
       </v-flex>
 
       <v-flex xs12 sm6 md4>
@@ -84,8 +50,11 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import officeSettings from '@/components/settings'
 
 export default {
+  components: { officeSettings },
+
   data() {
     return {
       handling: [
@@ -112,10 +81,7 @@ export default {
   methods: {
     ...mapActions([
       'updateSettings'
-    ]),
-    updateSettings() {
-      this.$store.dispatch('updateSettings', this.fields)
-    }
+    ])
   }
 }
 </script>

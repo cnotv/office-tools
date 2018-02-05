@@ -22,6 +22,7 @@ export default {
 
   UPDATE_SETTINGS: (state, fields) => {
     state.page.settings.data = fields
+    state.page.cv.data = fields
   },
 
   NEW_FILE: (state, payload) => {
