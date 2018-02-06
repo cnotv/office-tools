@@ -53,7 +53,7 @@
             </v-flex>
           </v-card-text>
 
-          <office-actions :type="'invoice'"/>
+          <document-actions :type="'invoice'"/>
         </v-card>
       </v-flex>
     </v-layout>
@@ -73,10 +73,10 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import officeActions from '@/components/actions'
+import documentActions from '@/components/documentActions'
 
 export default {
-  components: { officeActions },
+  components: { documentActions },
   data() {
     return {
       title: '',
