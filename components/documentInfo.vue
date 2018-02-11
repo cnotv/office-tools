@@ -1,8 +1,18 @@
 <template>
-  <v-card-text>
-    <p
+  <v-card-text class="c-infos">
+    <template
       v-for="(info, i) in infos"
-    >{{ info.value || getSettings.settings[i].value || '' }}</p>
+    >
+      <img
+        alt="cv logo"
+        v-if="info.value && info.name === 'logo'"
+        :src="info.value"
+      >
+      <p v-else-if="info.value">{{ info.value || getSettings.settings[i].value || '' }}</p>
+    </template>
+
+    <slot></slot>
+
   </v-card-text>
 </template>
 
@@ -20,4 +30,13 @@ export default {
 </script>
 
 <style>
+.c-infos img {
+    max-height: 50px;
+  }
+.c-infos p {
+  margin: 0;
+}
+.c-infos p:first-of-type {
+  font-weight: 700;
+}
 </style>
