@@ -5,6 +5,7 @@
     :title="title"
     :content="content"
     :settings="getOcr.settings"
+    :icon="'find_in_page'"
   />
 </template>
 

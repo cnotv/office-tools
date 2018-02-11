@@ -6,16 +6,11 @@
 
       <v-flex xs12>
         <v-card class="ma-2">
-          <v-card-title primary-title>
-            <v-btn
-              round flat small fab
-              color="primary"
-              nuxt
-              :to="'/' + type"
-            >
-              <v-icon>keyboard_arrow_left</v-icon>
-            </v-btn>
-
+          <v-card-title
+            primary-title
+            class="px-4 grey lighten-4"
+          >
+            <v-icon x-large>{{icon}}</v-icon>
             <v-text-field
               label="Title"
               v-model="title"
@@ -26,6 +21,14 @@
               hide-details
             ></v-text-field>
 
+            <v-btn
+              round flat small fab
+              color="primary"
+              nuxt
+              :to="'/' + type"
+            >
+              <v-icon>keyboard_arrow_left</v-icon>
+            </v-btn>
             <v-btn
               round
               small
@@ -52,6 +55,8 @@
                 multi-line
                 single-line
               ></v-text-field>
+
+              <slot name="document-content"></slot>
             </v-flex>
           </v-card-text>
 
@@ -85,6 +90,7 @@ export default {
     'type',
     'title',
     'content',
+    'icon',
     'settings'
   ],
   computed: {

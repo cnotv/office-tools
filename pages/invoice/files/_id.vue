@@ -5,6 +5,7 @@
     :title="title"
     :content="content"
     :settings="getInvoice.settings"
+    :icon="'receipt'"
   />
 </template>
 

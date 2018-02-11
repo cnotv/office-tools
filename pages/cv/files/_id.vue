@@ -5,7 +5,9 @@
     :title="title"
     :content="content"
     :settings="getCv.settings"
-  />
+    :icon="'portrait'"
+    slot="document-content"
+  >something</document>
 </template>
 
 <script>
