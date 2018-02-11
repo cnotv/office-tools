@@ -1,5 +1,5 @@
 <template>
-  <v-card-actions>
+  <v-card-actions class="pa-2 grey lighten-4">
     <v-btn
       round flat small fab
       v-for="(btn, i) in actionFile"
@@ -28,10 +28,10 @@ export default {
       actionFile: [
         { tooltip: 'Print', icon: 'print', click: '' },
         // { tooltip: 'Edit', icon: 'mode_edit', click: '' },
-        { tooltip: 'Download', icon: 'file_download', click: '' },
-        { tooltip: 'Generate encypted link', icon: 'link', click: '' },
-        { tooltip: 'Upload to cloud', icon: 'cloud_upload', click: '' },
-        { tooltip: 'Delete', icon: 'delete', click: '' }
+        { tooltip: 'Download', icon: 'file_download', click: '' }
+        // { tooltip: 'Generate encypted link', icon: 'link', click: '' },
+        // { tooltip: 'Upload to cloud', icon: 'cloud_upload', click: '' },
+        // { tooltip: 'Delete', icon: 'delete', click: '' }
       ]
     }
   },
