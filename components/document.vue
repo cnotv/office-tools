@@ -44,17 +44,18 @@
             <v-flex xs12>
               <document-info :infos="settings"/>
 
-              <v-text-field
-                label="Your informations"
+              <div
+                class="quill-editor" 
                 v-model="content"
+                :content="content"
+                @change="onEditorChange($event)"
+                @blur="onEditorBlur($event)"
+                @focus="onEditorFocus($event)"
+                @ready="onEditorReady($event)"
                 @keyup.ctrl.enter="updateFile"
-                ref="content"
-                counter
-                max="600"
-                full-width
-                multi-line
-                single-line
-              ></v-text-field>
+                v-quill:myQuillEditor="editorOption"
+              >
+              </div>
 
               <slot name="document-content"></slot>
             </v-flex>
@@ -82,9 +83,11 @@
 import { mapGetters, mapActions } from 'vuex'
 import documentActions from '@/components/documentActions'
 import documentInfo from '@/components/documentInfo'
+import documentEditor from '@/components/documentEditor'
 
 export default {
-  components: { documentActions, documentInfo },
+  components: { documentActions, documentInfo, documentEditor },
+
   props: [
     'id',
     'type',
@@ -93,6 +96,23 @@ export default {
     'icon',
     'settings'
   ],
+
+  data() {
+    return {
+      editorOption: {
+        // some quill options
+        modules: {
+          toolbar: [
+            [{ 'size': ['small', false, 'large'] }],
+            ['bold', 'italic'],
+            [{'list': 'ordered'}, { 'list': 'bullet' }],
+            ['link', 'image']
+          ]
+        }
+      }
+    }
+  },
+
   computed: {
     ...mapGetters([
       'getSettings'
@@ -114,6 +134,15 @@ export default {
           date: new Date().toLocaleString()
         }
       }).then(() => this.$router.replace({ path: '/' + this.type }))
+    },
+    onEditorBlur(editor) {
+    },
+    onEditorFocus(editor) {
+    },
+    onEditorReady(editor) {
+    },
+    onEditorChange({ editor, html, text }) {
+      this.content = html
     }
   }
 }
