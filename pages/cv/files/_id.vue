@@ -6,6 +6,7 @@
     :content="content"
     :settings="getCv.settings"
     :icon="'portrait'"
+    :action="'updateFile'"
     slot="document-content"
   >something</document>
 </template>

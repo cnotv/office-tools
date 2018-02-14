@@ -13,6 +13,7 @@
             <v-icon x-large>{{icon}}</v-icon>
             <v-text-field
               label="Title"
+              ref="title"
               v-model="title"
               @keyup.enter="updateFile"
               required
@@ -94,6 +95,7 @@ export default {
     'title',
     'content',
     'icon',
+    'action',
     'settings'
   ],
 
@@ -121,15 +123,16 @@ export default {
 
   methods: {
     ...mapActions([
+      'newFile',
       'updateFile'
     ]),
     updateFile() {
-      this.$store.dispatch('updateFile', {
+      this.$store.dispatch(this.action, {
         type: this.type,
         id: this.id - 1,
         file: {
           id: this.id,
-          title: this.title || '',
+          title: this.title || 'New Document (' + this.id + ')',
           content: this.content || '',
           date: new Date().toLocaleString()
         }
@@ -144,6 +147,10 @@ export default {
     onEditorChange({ editor, html, text }) {
       this.content = html
     }
+  },
+
+  mounted() {
+    this.$refs.title.focus()
   }
 }
 </script>
